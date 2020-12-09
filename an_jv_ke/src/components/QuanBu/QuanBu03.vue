@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .h270{height: 270px;font-size: 14px;}
-a{font-size: 14px;color: rgb(150, 150, 150);padding: 0 5px;}
+a{font-size: 14px;color: rgb(90, 90, 90);padding: 0 5px;}
 a:hover>i{color: #f00;}
 a:hover{color: rgb(255, 51, 15);text-decoration: none;}
 div.h270>ul>li>i:nth-child(2){top: 140px;left: 8px;width: 20px;height: 20px;background-repeat: no-repeat;background-size: 20px; background-image: url("../../img/QuanBu/download.png");}

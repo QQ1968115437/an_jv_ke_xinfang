@@ -77,7 +77,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* <!-- 页头-上 --> */
     #w1180{width: 1180px;margin: auto;}
     .YT-1>div{width: 1180px;justify-content: space-between;}
