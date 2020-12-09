@@ -1,9 +1,11 @@
 <template>
   <div class="QuanBu">
-    <yt001/>
+    <myheader/>
     
     <div class="QuanBu0">
       <quan-bu01/>
+      <quan-bu02/>
+      <quan-bu03/>
     </div>
 
     <myfooter/>
@@ -11,14 +13,16 @@
 </template>
 
 <script>
-import yt001 from '@/components/myheader/yt001'
+import myheader from '@/components/myheader/myheader'
 import QuanBu01 from '@/components/QuanBu/QuanBu01'
+import QuanBu02 from '@/components/QuanBu/QuanBu02'
+import QuanBu03 from '@/components/QuanBu/QuanBu03'
 import myfooter from '@/components/myfooter/myfooter'
 
 export default {
   name: 'QuanBu',
   components: {
-    yt001,QuanBu01,myfooter
+    myheader,QuanBu01,QuanBu02,QuanBu03,myfooter
   }
 }
 </script>

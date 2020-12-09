@@ -1,6 +1,6 @@
 <!--上面----------------------------------------------------- -->
 <template>
-    <div class="QuanBu01">
+    <div id="QuanBu01">
         <div class="h347 mt-3 border mb-3 p-3">
             <!-- 位置 -->
             <div>位置：
@@ -172,18 +172,11 @@
                 </ul>
             </div>
         </div>
-        <zhuyao/>
     </div>
 </template>
 
 <script>
-    import zhuyao from "./zhuyao"
     export default {
-    name: 'QuanBu01',
-    components: {
-        zhuyao
-    },
-
     data () {
         return {
             aa1:true,bb1:true,
@@ -200,20 +193,20 @@
 }
 </script>
 
-<style>
-.QuanBu01 .h347{height: 347px;}
-.QuanBu01 .xuxian{height: 1px;border-bottom: 1px dashed rgb(223, 223, 223);}
+<style scoped>
+#QuanBu01 .h347{height: 347px;}
+#QuanBu01 .xuxian{height: 1px;border-bottom: 1px dashed rgb(223, 223, 223);}
 .qvyv>a,.jiage>a,.qvyv>a>i,.jiage>a>i{color: rgb(255, 114, 58) !important;}
 
-.QuanBu01 a{font-size: 14px;color: rgb(80, 80, 80);}
-.QuanBu01 a:hover{color: rgb(255, 108, 41);}
-.QuanBu01 .quan{color: rgb(255, 51, 0);}
+#QuanBu01 a{font-size: 14px;color: rgb(80, 80, 80);}
+#QuanBu01 a:hover{color: rgb(255, 108, 41);}
+#QuanBu01 .quan{color: rgb(255, 51, 0);}
 
 .h347>div i{font-size: 5px;color: rgb(85, 85, 85);}
 .h347>div{font-size: 14px;color: rgb(85, 85, 85);}
-.QuanBu01 a:hover>i{color: rgb(255, 99, 37);}
+#QuanBu01 a:hover>i{color: rgb(255, 99, 37);}
 
-.QuanBu01 .dropdown-menu {
+#QuanBu01 .dropdown-menu {
     min-width: 6rem;
     margin-top: 0;
     font-size: 0.9rem;
@@ -222,7 +215,7 @@
     border: 1px solid rgba(163, 163, 163, 0.15);
     color: #494949;
 }
-.QuanBu01 .dropdown-toggle {
+#QuanBu01 .dropdown-toggle {
     color: #494949;
     border-radius: 8px;
     border: 1px solid #d1d1d1;
@@ -230,7 +223,7 @@
     width: 100px;
     height: 30px;
 }
-.QuanBu01 .dropdown-menu:hover {display: block;}
-.QuanBu01 .dropdown-toggle:focus {outline: 0}
-.QuanBu01 .dropdown-toggle:hover+ul {display: block;}
+#QuanBu01 .dropdown-menu:hover {display: block;}
+#QuanBu01 .dropdown-toggle:focus {outline: 0}
+#QuanBu01 .dropdown-toggle:hover+ul {display: block;}
 </style>

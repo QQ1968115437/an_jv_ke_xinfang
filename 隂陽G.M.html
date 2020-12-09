@@ -321,4 +321,28 @@ git仓库=[本地操作空间，暂存区(内存)，本地仓库]-->网络仓库
         timeupdate 事件在媒体对象的 currentTime 属性发生变化时调用
                 HTMLMediaElement.addEventListener('timeupdate',()=>{ ... })
                 HTMLMediaElement.ontimeupdate = ()=>{ .... }
+
+        全屏:
+            export default {
+                mounted () {
+                    var a=document.getElementsByClassName("a1")[0];
+                        a.width=200;a.height=200;
+                },
+                methods: {
+                    quan(){
+                        var a=document.getElementsByClassName("a1")[0];
+                        if(a.requestFullscreen){a.requestFullscreen()}else
+                        if(a.mozRequestFullScreen){a.mozRequestFullScreen()}else
+                        if(a.webkitRequestFullscreen){a.webkitRequestFullscreen()}
+                    }
+                }
+            }
 </102>
+
+<103><!-- JS绘制图形-canvas -->
+    HTMLCanvasElement
+        <canvas width="宽度" height="高度"></canvas>
+        getContext() 方法用于获取<canvas>元素的上下文,没有定义上下文则返回null
+    CanvasRenderingContext2D对象
+    
+</103>
