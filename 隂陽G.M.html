@@ -341,13 +341,39 @@ git仓库=[本地操作空间，暂存区(内存)，本地仓库]-->网络仓库
 </102>
 
 <103><!-- JS绘制图形-canvas -->
-    HTMLCanvasElement
+    1.HTMLCanvasElement
         <canvas width="宽度" height="高度"></canvas>
         getContext() 方法用于获取<canvas>元素的上下文,没有定义上下文则返回null
-    CanvasRenderingContext2D对象
-        strokeRect() 方法用于绘制描边矩形   ctx.strokeRect(x,y,width,height)
-        fillRect() 方法用于绘制填充矩形     ctx.fillRect(x,y,width,height)
-        strokeStyle 属性用于获取/设置描边颜色   ctx.strokeStyle = color
-        fillStyle 属性用于获取/设置填充颜色     ctx.fillStyle = color
+            let mmm=document.getElementById("mmm");
+            let D=mmm.getContext("2d");
+            mmm.width=400;mmm.height=200;
+    2.CanvasRenderingContext2D对象
+        颜色在矩形或文本位置前一行写
+        strokeStyle 属性用于获取/设置描边颜色       D.strokeStyle = color
+        fillStyle 属性用于获取/设置填充颜色         D.fillStyle = color
+        font 属性用于获取/设置文本样式              D.font = "字号 字体"
+        textAlign 属性用于设置文本的水平对齐方式    D.textAlign = 'left|center|right' 
 
+        strokeRect() 方法用于绘制描边矩形           D.strokeRect(x,y,width,height)
+        fillRect() 方法用于绘制填充矩形             D.fillRect(x,y,width,height)
+        strokeText() 方法用于绘制描边文本           D.strokeText(text,x,y)
+        fillText() 方法用于绘制填充文本             D.fillText(text,x,y) 
+        clearRect() 方法用于擦除指定的矩形区域      D.clearRect(x,y,width,height) 
+        beginPath() 方法用于新始一个新的路径        D.beginPath() 
+        moveTo() 方法用于指定路径的起点             D.moveTo(x,y)
+        lineTo() 方法用于绘制线段                   D.lineTo(x,y)
+        arc() 方法用于绘制圆弧路径                  D.arc(x,y,radius,start_angle,end_angle)
+        stroke() 方法用于根据当前的描边样式来绘制路径   D.stroke()
+
+        路径(path)将预先设置的坐标点顺序连接形成的图形
+            路径的绘制步骤： 
+            A.通过 ctx.beginPath()方法开始新的路径 
+            B.通过 ctx.moveTo()方法指定路径的起点坐标 
+            C.绘制基本路径内容(如 lineTo(),rect(),arc()方法用于绘制线段等) 
+            D.通过 stroke()或 fill()方法完成路径的绘制 
+    3.window对象 
+        requestAnimationFrame() 方法用于在浏览器中定时循环执行一个操作
+                variable = window.requestAnimationFrame(callback) 
+        cancelAnimationFrame() 方法用于清理由requestAnimationFrame()方法返回的requestId
+                window.cancelAnimationFrame(requestId) 
 </103>

@@ -20,7 +20,6 @@ import QuanBu03 from '@/components/QuanBu/QuanBu03'
 import myfooter from '@/components/myfooter/myfooter'
 
 export default {
-  name: 'QuanBu',
   components: {
     myheader,QuanBu01,QuanBu02,QuanBu03,myfooter
   }
