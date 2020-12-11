@@ -5,16 +5,9 @@
         </div>
         <div class="di-2">
             <ul class="breadcrumb m-0 p-0">
-                <li class="breadcrumb-item"><a href="#">关于安居客</a></li>
-                <li class="breadcrumb-item"><a href="#">联系我们</a></li>
-                <li class="breadcrumb-item"><a href="#">用户协议</a></li>
-                <li class="breadcrumb-item"><a href="#">友情链接</a></li>
-                <li class="breadcrumb-item"><a href="#">网站地图</a></li>
-                <li class="breadcrumb-item"><a href="#">其他城市</a></li>
-                <li class="breadcrumb-item"><a href="#">最新房源</a></li>
-                <li class="breadcrumb-item"><a href="#">最新问答</a></li>
-                <li class="breadcrumb-item"><a href="#">房贷计算器</a></li>
-                <li class="breadcrumb-item"><a href="#">订阅退订</a></li>
+                <li class="breadcrumb-item" v-for="(z,i) of A" :key="i">
+                    <router-link :to="z.href">{{z.wen}}</router-link>
+                </li>
             </ul>
         </div>
         <div class="di-3 pt-2">
@@ -26,7 +19,15 @@
         </div>
     </div>
 </template>
-
+<script>
+export default {
+    data () {
+        return {
+            A:[{wen:"关于安居客",href:"#"},{wen:"联系我们",href:"#"},{wen:"用户协议",href:"#"},{wen:"友情链接",href:"#"},{wen:"网站地图",href:"#"},{wen:"其他城市",href:"#"},{wen:"最新房源",href:"#"},{wen:"最新房源",href:"#"},{wen:"最新问答",href:"#"},{wen:"房贷计算器",href:"#"},{wen:"订阅退订",href:"#"}]
+        }
+    }
+}
+</script>
 <style>
 .di-0{width: 1180px; height: 140px;margin: 30px auto 50px;}
 .di-1{height: 60px;margin-bottom: 20px;padding: 12px 35px;background-color: #f7f7f7;font-size: 12px;color: #999;}

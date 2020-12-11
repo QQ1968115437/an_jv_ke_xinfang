@@ -5,8 +5,8 @@
         <div class="YT-1 border-bottom">
             <div class="d-flex m-auto">                
                 <ul class="breadcrumb">
-                    <li v-for="(zhi,i) in YT1" :key="i" class="breadcrumb-item">
-                        <a :href="i">{{zhi}}</a>
+                    <li v-for="(z,i) in YT1" :key="i" class="breadcrumb-item">
+                        <a :href="z">{{i}}</a>
                     </li>
                 </ul>
                 <ul class="breadcrumb">
@@ -57,7 +57,7 @@
             <!-- 页头-下-->
             <div class="yt003">
                 <ul class="nav">
-                    <li v-for="(zhi,i) in yt3" :key="i" class="nav-item"><a :href="i" class="nav-link m-0 h6">{{zhi}}</a></li>
+                    <li v-for="(z,i) in yt3" :key="i" class="nav-item"><router-link :to="z" class="nav-link m-0 h6">{{i}}</router-link></li>
                 </ul>
             </div>
         </div>
@@ -67,13 +67,23 @@
 <script>
 import bj from './bj'
 export default {
+    components: {bj},
     data () {
         return {
-            YT1:{"#01":"首 页","#02":"新 房","#03":"二手房","#04":"租 房","#05":"商铺写字楼","#06":"海外地产","#07":"装修","#08":"楼 讯","#09":"房产研究院","#010":"房 价","#011":"问 答"},
-            yt3:{"/1":"新盘","/2":"楼讯","/3":"热门活动","/4":"看房团","/5":"房源","/6":"商业地产","/7":"海外地产","/8":"品牌专区"}
+            YT1:{"首 页":"#01","新 房":"#02","二手房":"#03","租 房":"#04","商铺写字楼":"#05","海外地产":"#06","装修":"#07","楼 讯":"#08","房产研究院":"#09","房 价":"#010","问 答":"#011"},
+            yt3:{"新盘":"/","楼讯":"/2","热门活动":"/001","看房团":"/4","房源":"/5","商业地产":"/6","海外地产":"/7","品牌专区":"/8"}
         }
     },
-    components: {bj}
+    mounted () {
+        this.axios.get("/header").then(a=>{
+            var b=a.data.bb;
+            if(b.avatar!=null){
+                b.avatar=require('../../resource/avatar/'+b.avatar);
+              };
+              b.article_number=155;
+              this.m=b;
+        })
+    }
 }
 </script>
 

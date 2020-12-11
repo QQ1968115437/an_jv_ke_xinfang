@@ -1,6 +1,6 @@
 <template>
     <div id="gundong">
-        <div class="border">
+        <div>
             <div>活动火热报名中</div>
             <div id="gun0">
                 <ul id="gun1">
@@ -41,8 +41,8 @@ export default {
 </script>
 
 <style>
-#gundong>div{width: 260px;}
-#gundong>div>div:first-child{padding: 15px 18px 8px;font-size: 20px;}
+#gundong>div{width: 270px;}
+#gundong>div>div:first-child{padding: 5px 18px 8px;font-size: 20px;}
 #gun0{height: 200px;margin-bottom: 15px;overflow: hidden;}
 #gun1,#gun2{padding: 0 18px;font-size: 20px;margin: 0;}
 #gun1>li,#gun2>li{font-size: 14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
