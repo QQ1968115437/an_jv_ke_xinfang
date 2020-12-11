@@ -1,6 +1,6 @@
 <!-- 隂陽G.M专用web手册 -->
 <!-- 2020/12/4 -->
-
+administrator
 <0><!-- 目录: -->
     <1><!-- Vue客户端 -->   <2><!-- Node服务器端 -->    <3><!-- css类 -->
     <4><!-- 网址类 -->      <5><!-- mysql类 -->         <6><!-- Mint-ui类 -->
@@ -9,6 +9,9 @@
 </0>
 
 <1><!-- Vue客户端 -->
+    npm run build   进行打包
+    npm run serve   进行热编译
+
 npm i -g @vue/cli  <!-- 脚手架工具 -->
 npm install axios --save  <!-- 基于promise的HTTP库 -->
 npm install vue-router --save  <!-- vue路由器动态路由 -->
@@ -106,6 +109,7 @@ https://www.bootcss.com/  <!-- Bootstrap4下载 -->
 </3>
 
 <4><!-- 网址类 -->
+https://map.baidu.com/  <!-- 百度地图 -->
 https://www.iconfont.cn/  <!-- 阿里巴巴矢量图标库 -->
 https://fontawesome.dashgame.com/  <!-- Font Awesome矢量图标库 -->
 https://www.bootcss.com/  <!-- Bootstrap框架 -->
@@ -377,3 +381,15 @@ git仓库=[本地操作空间，暂存区(内存)，本地仓库]-->网络仓库
         cancelAnimationFrame() 方法用于清理由requestAnimationFrame()方法返回的requestId
                 window.cancelAnimationFrame(requestId) 
 </103>
+
+<104><!-- 地理位置 -->
+    https://map.baidu.com/
+    Geolocation API 位于 navigator 对象
+    方法:
+        getCurrentPosition()
+        watchPosition()
+        clearWatch()
+    navigator.geolocation.getCurrentPosition(a,b,{geolocation选项})
+        参数:   a:用户允许共享geolocation的回调;    b:位置获取失败的回调
+    navigator.geolocation.getCurrentPosition(function(position){console.log(position.coords)})
+</104>
