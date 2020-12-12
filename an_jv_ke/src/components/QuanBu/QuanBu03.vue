@@ -4,50 +4,20 @@
         <div class="w-100 h270">
                     <p class="h5">猜你喜欢</p>
                     <ul class="d-flex list-unstyled justify-content-between m-0">
-                        <li class="w-25 position-relative">
-                            <img class="w-100 pr-3" src="@/img/QuanBu/sef80x135m.jpg" alt="">
+                        <li class="w-25 position-relative" v-for="(z,i) of A" :key="i">
+                            <img class="w-100 pr-3" :src="z.imgs" alt="">
                             <i class="position-absolute"></i>
-                            <p><a href="#">石景山-长安和玺</a></p>
-                            <p>11111元/㎡</p>
-                        </li>
-                        <li class="w-25 position-relative">
-                            <img class="w-100 pr-3" src="@/img/QuanBu/hyju180x135m.jpg" alt="">
-                            <i class="position-absolute"></i>
-                            <p><a href="#">大兴-亦庄橡树湾</a></p>
-                            <p>22222元/㎡</p>
-                        </li>
-                        <li class="w-25 position-relative">
-                            <img class="w-100 pr-3" src="@/img/QuanBu/jlli180x135m.jpg" alt="">
-                            <i class="position-absolute"></i>
-                            <p><a href="#">北京周边-八达岭孔雀城</a></p>
-                            <p>33333元/㎡</p>
-                        </li>
-                        <li class="w-25 position-relative">
-                            <img class="w-100 pr-3" src="@/img/QuanBu/fgnyt180x135m.jpg" alt="">
-                            <i class="position-absolute"></i>
-                            <p><a href="#">固安-拾光锦云</a></p>
-                            <p>44444元/㎡</p>
-                        </li>
-                        <li class="w-25 position-relative">
-                            <img class="w-100 pr-3" src="@/img/QuanBu/ppj180x135m.jpg" alt="">
-                            <i class="position-absolute"></i>
-                            <p><a href="#">燕郊-嘉都</a></p>
-                            <p>55555元/㎡</p>
+                            <p><a :href="z.href">{{z.wen}}</a></p>
+                            <p>{{z.nb}}元/㎡</p>
                         </li>
                     </ul>
         </div>
-        <img src="@/img/QuanBu/ad1cc5d3619475ec3664103ad301d1a0.jpg" alt="">
+        <img :src="B[0].imgs" alt="">
             <!-- 底部推荐，相关信息 -->
         <div>
             <div class="text-center my-3 pb-3 border-bottom">
                 <p class="mb-1">北京房产网，提供北京楼盘信息，包括北京新开楼盘，在售楼盘，新房开盘等。安居客北京新房房产信息网频道，让您了解楼盘动态。</p>
-                手机找房：<a href="#">北京楼盘</a>
-                户型找房：<a href="#">北京楼盘大全</a>
-                <a href="#">北京开发商</a>
-                <a href="#">北京物业公司</a>
-                <a href="#">北京热门楼盘</a>
-                <a href="#">北京学校大全</a>
-                <a href="#">北京地图找房</a>
+                <a v-for="(z,i) in C" :key="i" :href="z.href">{{z.wen}}</a>
             </div>
         </div>
     </div>
@@ -55,7 +25,26 @@
 
 <script>
 export default {
-
+    data () {
+        return {
+            A:[],B:[],C:[]
+        }
+    },
+    mounted () {
+        this.axios.get("/QuanBu").then(a => {
+            var aaa=a.data.Quan03.a;
+            var bbb=a.data.Quan03.b;
+            aaa.forEach(e => {
+                e.imgs=require('@/img/QuanBu/'+e.imgs)
+            });
+            this.A=aaa;
+            bbb.forEach(e => {
+                e.imgs=require('@/img/QuanBu/'+e.imgs)
+            });
+            this.B=bbb;
+            this.C=a.data.Quan03.c;
+        })
+    }
 }
 </script>
 
