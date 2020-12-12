@@ -5,7 +5,7 @@
         <div class="YT-1 border-bottom">
             <div class="d-flex m-auto">                
                 <ul class="breadcrumb">
-                    <li v-for="(z,i) in YT1" :key="i" class="breadcrumb-item">
+                    <li v-for="(z,i) in yt1" :key="i" class="breadcrumb-item">
                         <a :href="z">{{i}}</a>
                     </li>
                 </ul>
@@ -70,18 +70,13 @@ export default {
     components: {bj},
     data () {
         return {
-            YT1:{"首 页":"#01","新 房":"#02","二手房":"#03","租 房":"#04","商铺写字楼":"#05","海外地产":"#06","装修":"#07","楼 讯":"#08","房产研究院":"#09","房 价":"#010","问 答":"#011"},
-            yt3:{"新盘":"/","楼讯":"/2","热门活动":"/001","看房团":"/4","房源":"/5","商业地产":"/6","海外地产":"/7","品牌专区":"/8"}
+            yt1:{},yt3:{}
         }
     },
     mounted () {
         this.axios.get("/header").then(a=>{
-            var b=a.data.bb;
-            if(b.avatar!=null){
-                b.avatar=require('../../resource/avatar/'+b.avatar);
-              };
-              b.article_number=155;
-              this.m=b;
+            this.yt1=a.data.yt1;
+            this.yt3=a.data.yt3;
         })
     }
 }

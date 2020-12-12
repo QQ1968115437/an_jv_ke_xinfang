@@ -267,7 +267,7 @@
             <div id="zhida" class="p-4">
                 <p class="float-left">新房直达：</p>
                 <ul class="list-unstyled float-right"> 
-                    <li v-for="(zhi,i) in AAA" :key="i">{{zhi}}</li>
+                    <!-- <li v-for="(zhi,i) in AAA" :key="i">{{zhi}}</li> -->
                 </ul>
             </div>
 

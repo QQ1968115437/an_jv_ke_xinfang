@@ -11,7 +11,7 @@ Vue.prototype.axios=axios;
 Vue.prototype.moment=moment;
 
 Vue.use(MintUI)
-axios.defaults.baseURL="http://localhost:3000"
+axios.defaults.baseURL="http://localhost:8000"
 
 Vue.config.productionTip = false
 

@@ -23,8 +23,13 @@
 export default {
     data () {
         return {
-            A:[{wen:"关于安居客",href:"#"},{wen:"联系我们",href:"#"},{wen:"用户协议",href:"#"},{wen:"友情链接",href:"#"},{wen:"网站地图",href:"#"},{wen:"其他城市",href:"#"},{wen:"最新房源",href:"#"},{wen:"最新房源",href:"#"},{wen:"最新问答",href:"#"},{wen:"房贷计算器",href:"#"},{wen:"订阅退订",href:"#"}]
+            A:[]
         }
+    },
+    mounted () {
+        this.axios.get("/footer").then(a => {
+            this.A=a.data.A
+        })
     }
 }
 </script>
