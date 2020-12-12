@@ -9,10 +9,10 @@
                         <a :href="z">{{i}}</a>
                     </li>
                 </ul>
-                <ul class="breadcrumb">
+                <ul class="breadcrumb xiao">
                     <li class="breadcrumb-item">
                         <a href="#">客户登录
-                            <i class="bg-img-1 d-inline-block ml-1"></i>
+                            <i class="bg-img-1 ml-1"></i>
                         </a>
                         <div class="kehu border">
                             <a href="#">中国网络经纪人</a>
@@ -21,14 +21,15 @@
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#">
-                            <i class="bg-img-2 d-inline-block"></i>
+                            <i class="bg-img-2"></i>
                             用户登录</a>
                         <a href="#" class="ml-3">注册</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#">
-                            <i class="bg-img-3 d-inline-block"></i>
-                            收藏夹</a>
+                            <i class="bg-img-3"></i>
+                            收藏夹
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -89,6 +90,7 @@ export default {
     .YT-1>div>ul{background-color: #fff;margin: 0;}
     .YT-1 a{color: rgb(121, 121, 121);font-size: 14px;}
     .YT-1 a:hover{color: rgb(255, 129, 129);}
+    .xiao>li i{display: inline-block;}
     .breadcrumb-item + .breadcrumb-item::before {
     color: #6c757d;
     content: "|";

@@ -74,8 +74,8 @@
     methods: {
         a01(){this.aa1=true;this.qvyv1="qvyv";this.qvyv2=""},
         a02(){this.aa1=false;this.qvyv1="";this.qvyv2="qvyv"},
-        b01(){this.bb1=true;this.jiage1="jiage";this.jiage2="";},
-        b02(){this.bb1=false;this.jiage1="";this.jiage2="jiage";}
+        b01(){this.bb1=true;this.jiage1="jiage";this.jiage2=""},
+        b02(){this.bb1=false;this.jiage1="";this.jiage2="jiage"}
     },
     mounted () {
         this.axios.get("/QuanBu").then(a=>{

@@ -2,15 +2,15 @@
     <div id="QuanBu03">
         <!-- 猜你喜欢 -->
         <div class="w-100 h270">
-                    <p class="h5">猜你喜欢</p>
-                    <ul class="d-flex list-unstyled justify-content-between m-0">
-                        <li class="w-25 position-relative" v-for="(z,i) of A" :key="i">
-                            <img class="w-100 pr-3" :src="z.imgs" alt="">
-                            <i class="position-absolute"></i>
-                            <p><a :href="z.href">{{z.wen}}</a></p>
-                            <p>{{z.nb}}元/㎡</p>
-                        </li>
-                    </ul>
+            <p class="h5">猜你喜欢</p>
+            <ul class="d-flex list-unstyled justify-content-between m-0">
+                <li class="w-25 position-relative" v-for="(z,i) of A" :key="i">
+                    <img class="w-100 pr-3" :src="z.imgs" alt="">
+                    <i class="position-absolute"></i>
+                    <p><a :href="z.href">{{z.wen}}</a></p>
+                    <p>{{z.nb}}元/㎡</p>
+                </li>
+            </ul>
         </div>
         <img :src="B[0].imgs" alt="">
             <!-- 底部推荐，相关信息 -->
