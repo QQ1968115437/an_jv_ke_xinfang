@@ -3,12 +3,12 @@
     <div id="QuanBu02" class="row no-gutters justify-content-between">
         <div class="w-76">
             <ul class="row no-gutters h40 border-bottom text-center">
-                <li class="col-2 py-2 border xuanfu-1"><a href="#">全部楼盘</a></li>
+                <li class="col-2 py-2 border xuanfu-1">全部楼盘</li>
                 <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♙</span><a href="#">近期开盘</a></li>
                 <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♔</span><a href="#">优惠楼盘</a></li>
             </ul>
             <div class="h50 text-right pt-3">
-                <span class="float-left">共有<em class="text-danger">888</em>个符合要求的<em>北京楼盘</em></span>
+                <span class="float-left">共有<em class="text-danger">{{zhu.length}}</em>个符合要求的<em>北京楼盘</em></span>
                 <span>
                     <a href="#" class="text-danger">默认排序</a>
                     <a href="#" class="ml-2 mr-1">价格</a>▼
@@ -17,55 +17,44 @@
             </div>
             <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div>
 
-            <div class="py-3 d-flex h215" v-for="(z,i) of 10" :key="i">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
+            <div class="py-3 d-flex h215" v-for="(z,i) of zhu" :key="i">
+                <div class="mb-5 mr-3 position-relative">
+                    <img :src="require(`@/img/QuanBu/${z.imgs}`)" alt="">
+                    <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
+                </div>
+                <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
+                    <li><a href="#">{{z.wen1}}</a></li>
+                    <li class="d-flex justify-content-between align-items-center">
+                        <div class="pt-2">{{z.wen2}}</div>
+                        <div>总价<span>{{z.jia}}</span>万元/套起</div>
+                    </li>
+                    <li>
+                        <div>
+                            户型：<span>{{z.xing}}</span><i> | </i>
+                            建筑面积：<span>{{z.mian}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <ul class="d-flex biaoqian">
+                            <li class="ml-3" v-for="(m,n) of z.biaoqian" :key="n">{{m}}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img :src="require(`@/img/QuanBu/${z.bang}`)" alt="">
+                        <span class="ml-2">{{z.banged}}</span>
+                        <span class="float-right">▼ {{z.hd}}</span>
+                    </li>
+                </ul>
             </div>
             
             <!-- 分页条 -->
             <div class="mt-5 clearfix mb-4">
                 <div class=" mt-2 float-left text-info">共有866个有关北京新房楼盘</div>
-                <ul class="pagination float-right">
-                    <li class="page-item ml-2 disabled"><a href="#" class="page-link btn text-white font-weight-bold bg-success">上一页</a></li>
-                    <li class="page-item ml-2 active"><a href="#" class="page-link btn text-white font-weight-bold bg-success">1</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">2</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">3</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">4</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">5</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">6</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">7</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">...</a></li>
-                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">下一页</a></li>
+                <ul class="d-flex float-right" style="cursor: pointer;">
+                    <li class="btn-sm btn-success px-3 ml-2">上一页</li>
+                    <li v-for="(z,i) of 7" :key="i" class="btn-sm btn-success px-3 ml-2">{{i+1}}</li>
+                    <li class="btn-sm btn-success px-3 ml-2">...</li>
+                    <li class="btn-sm btn-success px-3 ml-2">下一页</li>
                 </ul>
             </div>
         </div>
@@ -101,12 +90,13 @@
 export default {
     data() {
         return {
-            youce:[]
+            zhu:[],youce:[]
         }
     },
     mounted() {
         this.axios.get("/QuanBu").then(a => {
-            this.youce=a.data.Quan02.youce
+            this.zhu=a.data.Quan02.zhu;
+            this.youce=a.data.Quan02.youce;
         })
     }
 }
@@ -191,7 +181,7 @@ ul.h40>li>a{font-size: 18px;}
 ul.h40>li:hover>a{color: #fff !important;}
 .xuanfu-1,.xuanfu-1+li:hover,.xuanfu-1+li+li:hover{background-color: #62ab00;border: 1px solid #62ab00 !important;color: #fff;}
 
-.bofang{left: 54px; top: 32px;}
+.bofang{left: 54px; top: 38px;width: 60px;height: 60px;box-shadow: 0 0 5px #83838375;border-radius: 50%;}
 
 .zi-1{font-size: 14px;}
 .zi-1>li>a:first-child{font-size: 22px;font-weight: bold;color: rgb(58, 58, 58);}
@@ -201,6 +191,9 @@ ul.h40>li:hover>a{color: #fff !important;}
 
 .nav-link {display: block;padding: 0.5rem 0.6rem;}
 .w100+ul a,.w100+ul i{color: rgb(143, 143, 143);}
+
+.biaoqian>li:first-child{margin-left: 0 !important;color: #fff !important;background-color: #007bff !important;}
+.biaoqian>li:nth-child(2){color: #fff !important;background-color: #17a2b8 !important;}
 
 #loupan>ul>li>a:hover{color: rgb(43, 43, 43)}
 #loupan+div a:hover{color: rgb(63, 63, 63);}
