@@ -79,12 +79,12 @@
     },
     mounted () {
         this.axios.get("/QuanBu").then(a=>{
-            this.qvyv=a.data.qvyv;
-            this.jiage=a.data.jiage;
-            this.mianji=a.data.mianji;
-            this.huxing=a.data.huxing;
-            this.geng=a.data.geng;
-            this.genged=a.data.genged;
+            this.qvyv=a.data.Quan01.qvyv;
+            this.jiage=a.data.Quan01.jiage;
+            this.mianji=a.data.Quan01.mianji;
+            this.huxing=a.data.Quan01.huxing;
+            this.geng=a.data.Quan01.geng;
+            this.genged=a.data.Quan01.genged;
         })
     }
 }

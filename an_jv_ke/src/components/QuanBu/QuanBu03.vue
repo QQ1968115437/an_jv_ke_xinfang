@@ -5,14 +5,16 @@
             <p class="h5">猜你喜欢</p>
             <ul class="d-flex list-unstyled justify-content-between m-0">
                 <li class="w-25 position-relative" v-for="(z,i) of A" :key="i">
-                    <img class="w-100 pr-3" :src="z.imgs" alt="">
+                    <img class="w-100 pr-3" :src="require(`@/img/QuanBu/${z.imgs}`)" alt="">
                     <i class="position-absolute"></i>
                     <p><a :href="z.href">{{z.wen}}</a></p>
                     <p>{{z.nb}}元/㎡</p>
                 </li>
             </ul>
         </div>
-        <img :src="B[0].imgs" alt="">
+        <div v-for="(z,i) of B" :key="i">
+            <img :src="require(`@/img/QuanBu/${z.imgs}`)" alt="">
+        </div>
             <!-- 底部推荐，相关信息 -->
         <div>
             <div class="text-center my-3 pb-3 border-bottom">
@@ -32,16 +34,8 @@ export default {
     },
     mounted () {
         this.axios.get("/QuanBu").then(a => {
-            var aaa=a.data.Quan03.a;
-            var bbb=a.data.Quan03.b;
-            aaa.forEach(e => {
-                e.imgs=require('@/img/QuanBu/'+e.imgs)
-            });
-            this.A=aaa;
-            bbb.forEach(e => {
-                e.imgs=require('@/img/QuanBu/'+e.imgs)
-            });
-            this.B=bbb;
+            this.A=a.data.Quan03.a;
+            this.B=a.data.Quan03.b;
             this.C=a.data.Quan03.c;
         })
     }

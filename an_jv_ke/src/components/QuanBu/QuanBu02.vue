@@ -2,343 +2,115 @@
 <template>
     <div id="QuanBu02" class="row no-gutters justify-content-between">
         <div class="w-76">
-                <ul class="row no-gutters list-unstyled h40 border-bottom text-center">
-                    <li class="col-2 py-2 border xuanfu-1"><a href="#">全部楼盘</a></li>
-                    <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♙</span><a href="#">近期开盘</a></li>
-                    <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♔</span><a href="#">优惠楼盘</a></li>
+            <ul class="row no-gutters h40 border-bottom text-center">
+                <li class="col-2 py-2 border xuanfu-1"><a href="#">全部楼盘</a></li>
+                <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♙</span><a href="#">近期开盘</a></li>
+                <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♔</span><a href="#">优惠楼盘</a></li>
+            </ul>
+            <div class="h50 text-right pt-3">
+                <span class="float-left">共有<em class="text-danger">888</em>个符合要求的<em>北京楼盘</em></span>
+                <span>
+                    <a href="#" class="text-danger">默认排序</a>
+                    <a href="#" class="ml-2 mr-1">价格</a>▼
+                    <a href="#" class="ml-2 mr-1">开盘时间</a>▼
+                </span>
+            </div>
+            <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div>
+
+            <div class="py-3 d-flex h215" v-for="(z,i) of 10" :key="i">
+                    <div class="mb-5 mr-3 position-relative">
+                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
+                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
+                    </div>
+                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
+                        <li><a href="#">金融街武夷·融御</a></li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
+                            <div>总价<span>430</span>万元/套起</div>
+                        </li>
+                        <li>
+                            <div>
+                                户型：<span>2室</span><i> | </i>
+                                建筑面积：<span>72-79m²</span>
+                            </div>
+                        </li>
+                        <li>
+                            <ul class="nav">
+                                <li class="bg-primary text-white">在售</li>
+                                <li class="ml-3 bg-info text-white">住宅</li>
+                                <li class="ml-3 ">一房一价</li>
+                                <li class="ml-3">VR看房</li>
+                                <li class="ml-3">装修交付</li>
+                                <li class="ml-3">商业街</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
+                            <span>入围通州人气楼盘榜</span>
+                            <span class="float-right">▼ 2个活动</span>
+                        </li>
+                    </ul>
+            </div>
+            
+            <!-- 分页条 -->
+            <div class="mt-5 clearfix mb-4">
+                <div class=" mt-2 float-left text-info">共有866个有关北京新房楼盘</div>
+                <ul class="pagination float-right">
+                    <li class="page-item ml-2 disabled"><a href="#" class="page-link btn text-white font-weight-bold bg-success">上一页</a></li>
+                    <li class="page-item ml-2 active"><a href="#" class="page-link btn text-white font-weight-bold bg-success">1</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">2</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">3</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">4</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">5</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">6</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">7</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">...</a></li>
+                    <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">下一页</a></li>
                 </ul>
-
-                <div class="h50 text-right pt-3">
-                    <span class="float-left">共有<em class="text-danger">888</em>个符合要求的<em>北京楼盘</em></span>
-                    <span>
-                        <a href="#" class="text-danger">默认排序</a>
-                        <a href="#" class="ml-2 mr-1">价格</a>▼
-                        <a href="#" class="ml-2 mr-1">开盘时间</a>▼
-                    </span>
-                </div>
-
-                <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div>
-
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 d-flex h215">
-                    <div class="mb-5 mr-3 position-relative">
-                        <img src="@/img/QuanBu/dffbn-dfsv.jpg" alt="">
-                        <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
-                    </div>
-                    <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
-                        <li><a href="#">金融街武夷·融御</a></li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <div class="pt-2">[ 通州 政务区 ] 北京城市副中心行政办公区西北约1700米...</div>
-                            <div>总价<span>430</span>万元/套起</div>
-                        </li>
-                        <li>
-                            <div>
-                                户型：<span>2室</span><i> | </i>
-                                建筑面积：<span>72-79m²</span>
-                            </div>
-                        </li>
-                        <li>
-                            <ul class="nav">
-                                <li class="bg-primary text-white">在售</li>
-                                <li class="ml-3 bg-info text-white">住宅</li>
-                                <li class="ml-3 ">一房一价</li>
-                                <li class="ml-3">VR看房</li>
-                                <li class="ml-3">装修交付</li>
-                                <li class="ml-3">商业街</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="@/img/QuanBu/dowhgnload.png" alt="">
-                            <span>入围通州人气楼盘榜</span>
-                            <span class="float-right">▼ 2个活动</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- 分页条 -->
-                <div class="mt-5 clearfix mb-4">
-                    <div class=" mt-2 float-left text-info">共有866个有关北京新房楼盘</div>
-                    <ul class="pagination float-right">
-                        <li class="page-item ml-2 disabled"><a href="#" class="page-link btn text-white font-weight-bold bg-success">上一页</a></li>
-                        <li class="page-item ml-2 active"><a href="#" class="page-link btn text-white font-weight-bold bg-success">1</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">2</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">3</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">4</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">5</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">6</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">7</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">...</a></li>
-                        <li class="page-item ml-2"><a href="#" class="page-link btn text-white font-weight-bold bg-success">下一页</a></li>
-                    </ul>
-                </div>
+            </div>
         </div>
             <!-- 右侧栏 -->
         <div class="w-22">
-                    <ul class="border list-unstyled">
-                                <li class="h37">
-                                    热门楼盘<a href="#" class="float-right mr-4 mt-1">更多>></a>
-                                </li>
-                                <li class="h220">
-                                    <div class="mb-2"><img class="w-100" src="@/img/QuanBu/7f6f6b5c9b1dce32a1eaf7bb878cbc5b.jpg" alt=""></div>
-                                    <span>海淀-融创香山壹號院</span>
-                                    <div class="my-1">
-                                        <span class="text-danger m-0 h6">海淀西四环阔景...</span>
-                                        <i class="float-right">88人已报名</i>
-                                    </div>
-                                    <i class="xuxian"></i>
-                                </li>
-                                <li class="h220">
-                                    <div class="mb-2"><img class="w-100" src="@/img/QuanBu/f212d99c75b936af67cf8a69c2b9019b.jpg" alt=""></div>
-                                    <span>固安-永定河孔雀城航天首府</span>
-                                    <div class="my-1">
-                                        <span class="text-danger m-0 h6">全款88折按揭8...</span>
-                                        <i class="float-right">202人已报名</i>
-                                    </div>
-                                    <i class="xuxian"></i>
-                                </li>
-                                <li class="h220">
-                                    <div class="mb-2"><img class="w-100" src="@/img/QuanBu/c04010fa82fab63bda833dbc6cdeba29.jpg" alt=""></div>
-                                    <span>北京周边-温泉新都孔雀城</span>
-                                    <div class="my-1">
-                                        <span class="text-danger m-0 h6">特惠房源倾情钜...</span>
-                                        <i class="float-right">55人已报名</i>
-                                    </div>
-                                    <i class="xuxian"></i>
-                                </li>
-                                <li class="h220">
-                                    <div class="mb-2"><img class="w-100" src="@/img/QuanBu/3b09be6da03b19e80cfb9879d5040a3e.jpg" alt=""></div>
-                                    <span>香河-大运河智慧中心</span>
-                                    <div class="my-1">
-                                        <span class="text-danger m-0 h6">副中心东平层</span>
-                                        <i class="float-right">37人已报名</i>
-                                    </div>
-                                    <i class="xuxian"></i>
-                                </li>
-                                <li class="h220">
-                                    <div class="mb-2"><img class="w-100" src="@/img/QuanBu/467f81192ccc9179e93142d0e598ccae.jpg" alt=""></div>
-                                    <span>大兴-中海寰宇时代</span>
-                                    <div class="my-1">
-                                        <span class="text-danger m-0 h6">8号线热销盘收...</span>
-                                        <i class="float-right">1414人已报名</i>
-                                    </div>
-                                </li>
-                    </ul>
-                    <div class="h220 border my-3">
-                                <h5>北京房价行情</h5>
-                                <p class="mb-1">11月均价：<em class="text-danger">40951元/平米</em></p>
-                                <p class="mb-1">比10月上涨：<em class="text-danger">↑0.36%</em></p>
-                                <div class="mb-2"><img class="w-100" src="@/img/QuanBu/chart.anjukestatic.png" alt=""></div>
+            <ul class="border list-unstyled">
+                <li class="h37">
+                    热门楼盘<a href="#" class="float-right mr-4 mt-1">更多>></a>
+                </li>
+                <li class="h220" v-for="(z,i) of youce" :key="i">
+                    <div class="mb-2"><img class="w-100" :src="require(`@/img/QuanBu/${z.imgs}`)" alt=""></div>
+                    <span>{{z.wen1}}</span>
+                    <div class="my-1">
+                        <span class="text-danger m-0 h6">{{z.wen2}}</span>
+                        <i class="float-right">{{z.shu}}人已报名</i>
                     </div>
-                    <div class="h220 border py-2">
-                        <img class="w-100 h-100" src="@/img/QuanBu/58_jinrong.jpg" alt="">
-                    </div>
+                    <i class="xuxian"></i>
+                </li>
+            </ul>
+            <div class="h220 border my-3">
+                <h5>北京房价行情</h5>
+                <p class="mb-1">11月均价：<em class="text-danger">40951元/平米</em></p>
+                <p class="mb-1">比10月上涨：<em class="text-danger">↑0.36%</em></p>
+                <div class="mb-2"><img class="w-100" src="@/img/QuanBu/chart.anjukestatic.png" alt=""></div>
+            </div>
+            <div class="h220 border py-2">
+                <img class="w-100 h-100" src="@/img/QuanBu/58_jinrong.jpg" alt="">
+            </div>
         </div>
     </div>
 </template>
-
+<script>
+export default {
+    data() {
+        return {
+            youce:[]
+        }
+    },
+    mounted() {
+        this.axios.get("/QuanBu").then(a => {
+            this.youce=a.data.Quan02.youce
+        })
+    }
+}
+</script>
 <style scoped>
 .w-22{width: 22%;}
 .w-76{width: 76%;}
