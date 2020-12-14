@@ -33,10 +33,10 @@ export default {
         }
     },
     mounted () {
-        this.axios.get("/QuanBu").then(a => {
-            this.A=a.data.Quan03.a;
-            this.B=a.data.Quan03.b;
-            this.C=a.data.Quan03.c;
+        this.axios.get("/QuanBu03").then(a => {
+            this.A=a.data.a;
+            this.B=a.data.b;
+            this.C=a.data.c;
         })
     }
 }

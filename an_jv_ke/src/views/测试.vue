@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ceshi/>
+        <ceshi :zhu_zong="zhu_zong" v-model="xian" @on-jump="jump"></ceshi>
     </div>
 </template>
 
@@ -9,6 +9,17 @@ import ceshi from '../components/Canvas/huojian'
 export default {
     components:{
         ceshi
+    },
+    data () {
+        return {
+            zhu_zong: 30,
+            xian: 1
+        }
+    },
+    methods:{
+    jump(id){
+        console.log(id)
+    }
     }
 }
 </script>

@@ -4,15 +4,17 @@ administrator
 <0><!-- 目录: -->
     <1><!-- Vue客户端 -->   <2><!-- Node服务器端 -->    <3><!-- css类 -->
     <4><!-- 网址类 -->      <5><!-- mysql类 -->         <6><!-- Mint-ui类 -->
+    <7><!-- Json-server -->
     <100><!-- Git类 -->     <101><!-- 数据储存 WebStorage-->        <102><!-- 音频与视频-->
-    <103><!-- JS绘制图形-canvas -->
+    <103><!-- JS绘制图形-canvas --> <105><!-- 拖放事件 -->
 </0>
 
 <1><!-- Vue客户端 -->
     npm run build   进行打包
     npm run serve   进行热编译
     json-server --watch --port 8000 json_server.json
-   
+
+npm install uuid --save  <!-- 资源唯一标识符 -->
 npm install -g json-server <!-- 安装全局的json-server -->
 npm i -g @vue/cli  <!-- 脚手架工具 -->
 npm install axios --save  <!-- 基于promise的HTTP库 -->
@@ -33,7 +35,7 @@ npm install vuex --save  <!-- 状态管理 -->
             Vue.prototype.qs=qs;
             Vue.prototype.moment=moment;
             Vue.use(MintUI)
-            axios.defaults.baseURL="http://localhost:3000"
+            axios.defaults.baseURL="http://localhost:8000"
 
             new Vue({
                 router,store,
@@ -74,7 +76,7 @@ npm install mysql  <!-- mysql数据库模块 -->
             const cors=require("cors");
             const mysql=require("mysql");
             const app=express();
-            app.listen(3000);
+            app.listen(8000);
 
         const pool=mysql.createPool({
             host:"127.0.0.1",
@@ -164,6 +166,49 @@ SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_
 <6><!-- Mint-ui类 -->
     $messagebox("注册提示","对不起,用户已存在")  <!-- 模态框 -->
 </6>
+
+<7><!-- Json-server -->
+    npm install -g json-server    <!-- 安装全局的json-server -->
+
+    json-server --watch --port 8000 json_server.json
+
+    http://localhost:8000/users    <!-- //获取所有用户信息 -->
+
+    http://localhost:8000/users/1    <!-- //获取id为1的用户信息 -->
+
+    http://localhost:8000/companies    <!-- //获取公司的所有信息 -->
+
+    http://localhost:8000/companies/1    <!-- //获取单个公司的信息 -->
+
+    http://localhost:8000/companies/3/users    <!-- //获取所有公司id为3的用户 -->
+
+    http://localhost:8000/companies?name=Google    <!-- //根据公司名字获取信息 -->
+
+    http://localhost:8000/companies?name=Google&name=Apple    <!-- //根据多个名字获取公司信息 -->
+
+    http://localhost:8000/companies?_page=1&_limit=2    <!-- //获取一页中只有两条数据 -->
+
+    http://localhost:8000/companies?_sort=name&_order=asc    <!-- //升序排序  desc降序  asc升序 -->
+
+    http://localhost:8000/users?age_gte=30    <!-- //获取年龄为30以及30以上的 -->
+
+    http://localhost:8000/users?age_gte=30&age_gte=40    <!-- //获取年龄为30到40之间的 -->
+
+    http://localhost:8000/users?q=d    <!-- //搜索用户信息 -->
+
+    知识点总结如下： 
+    1、http://localhost:3000/db 访问的是db.json文件下的所有内容； 
+    2、http://localhost:3000/layoutList?categoryName= 模拟接口参数可筛选该目录下内容 
+    3、分页查询 参数为 _start, _end, _limit，并可添加其它参数筛选条件 
+        如：http://localhost:3000/posts?_start=6&_limit=3 
+        http://localhost:3000/posts?_start=3&_end=6 
+    4、排序 参数为_sort, _order 
+        如：http://localhost:3000/posts?_sort=id&_order=asc 
+        http://localhost:3000/posts?_sort=user,views&_order=desc,asc 
+    5、操作符 _gte, _lte, _ne, _like 
+        _gte大于，_lte小于， _ne非， _like模糊查询 
+    6、q全局搜索（模糊查询）
+</7>
 
 <100><!-- Git类 -->
 ---------------------------------------------------------------------
@@ -395,6 +440,27 @@ git仓库=[本地操作空间，暂存区(内存)，本地仓库]-->网络仓库
         参数:   a:用户允许共享geolocation的回调;    b:位置获取失败的回调
     navigator.geolocation.getCurrentPosition(function(position){console.log(position.coords)})
 </104>
+
+<105><!-- 拖放事件 -->
+    dragstart 事件在源对象开始被拖放时触发  HTMLElement.ondragstart = ()=>{  } 
+    drag 事件在源对象拖放过程中被触发  HTMLElement.ondrag = ()=>{  } 
+    dragend事件在源对象释放后被触发  HTMLElement.ondragend = ()=>{  } 
+    dragenter事件是在源对象进入目标对象的区域范围时被触发  HTMLElement.ondragenter = ()=>{  } 
+    dragover事件在源对象在目标对象悬停时触发  HTMLElement.ondragover = ()=>{ event.preventDefault(); } 必须在该事件内调用 event.preventDefault()方法，否则不会触发 drop 事件
+    dragleave 事件在源对象拖动离开目标对象时触发  HTMLElement.ondragleave = ()=>{  } 
+    drop 事件将在源对象在目标对象范围内释放时触发  HTMLElement.ondrop = ()=>{  } 
+
+    拖放事件的触发顺序： dragstart-->drag-->dragenter-->dragover-->drop-->dragend 
+
+    dataTransfer 属性将返回 DataTransfer对象，用于保存拖放数据
+
+    DataTransfer对象
+    setData()方法用于给指定的类型设置数据，如果类型不存在则自动添加到到 未尾，如果存在的话，则替换原来的值
+        DataTransfer.setData(type,value) 
+    getData()方法用于获取指定类型的数据
+        variable = DataTransfer.getData(type)
+</105>
+
 
 <!--
 // 最终修改，正常加载

@@ -4,11 +4,11 @@
         <div class="w-76">
             <ul class="row no-gutters h40 border-bottom text-center">
                 <li class="col-2 py-2 border xuanfu-1">全部楼盘</li>
-                <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♙</span><a href="#">近期开盘</a></li>
-                <li class="col-2 py-2 border"><span class="mr-2 font-weight-bold">♔</span><a href="#">优惠楼盘</a></li>
+                <li class="col-2 py-2 border">♙ 近期开盘</li>
+                <li class="col-2 py-2 border">♔ 优惠楼盘</li>
             </ul>
             <div class="h50 text-right pt-3">
-                <span class="float-left">共有<em class="text-danger">{{zhu.length}}</em>个符合要求的<em>北京楼盘</em></span>
+                <span class="float-left">共有<em class="text-danger">{{zhu_zong}}</em>个符合要求的<em>北京楼盘</em></span>
                 <span>
                     <a href="#" class="text-danger">默认排序</a>
                     <a href="#" class="ml-2 mr-1">价格</a>▼
@@ -49,11 +49,10 @@
             
             <!-- 分页条 -->
             <div class="mt-5 clearfix mb-4">
-                <div class=" mt-2 float-left text-info">共有866个有关北京新房楼盘</div>
-                <ul class="d-flex float-right" style="cursor: pointer;">
-                    <li class="btn-sm btn-success px-3 ml-2">上一页</li>
-                    <li v-for="(z,i) of 7" :key="i" class="btn-sm btn-success px-3 ml-2">{{i+1}}</li>
-                    <li class="btn-sm btn-success px-3 ml-2">...</li>
+                <div class=" mt-2 float-left text-info">共有{{zhu_zong}}个有关北京新房楼盘</div>
+                <ul class="d-flex float-right" style="cursor: pointer;user-select: none;" @click="fenye">
+                    <li class="btn-sm btn-success px-3 ml-2 disabled">上一页</li>
+                    <li v-for="i of zhu_zong/10" :key="i" class="btn-sm btn-success px-3 ml-2">{{i}}</li>
                     <li class="btn-sm btn-success px-3 ml-2">下一页</li>
                 </ul>
             </div>
@@ -90,14 +89,43 @@
 export default {
     data() {
         return {
-            zhu:[],youce:[]
+            zhu:[],youce:[],cha:0,zhu_zong:"",tiao:10
+        }
+    },
+    methods: {
+        fenye(e){
+            if(e.target.nodeName=="LI"){
+                let ye=Number(this.zhu_zong)/this.tiao-1;
+                let cha=Number(e.target.innerHTML)-1;
+                switch (e.target.innerHTML) {
+                    case "上一页":if(this.cha>0){this.cha--};break;
+                    case "下一页":if(this.cha<ye){this.cha++;}else this.cha=ye;break;
+                    case "...":break;
+                    default :this.cha=cha;break;
+                }
+            };
+            this.axios.get("/QuanBu02_zhu",{
+                params:{_start:this.cha*this.tiao,_limit:this.tiao}
+            }).then(a => {
+                this.zhu=a.data;
+            });
         }
     },
     mounted() {
-        this.axios.get("/QuanBu").then(a => {
-            this.zhu=a.data.Quan02.zhu;
-            this.youce=a.data.Quan02.youce;
-        })
+        // 获取分页内容
+        this.axios.get("/QuanBu02_zhu",{
+            params:{_start:this.cha,_limit:10}
+        }).then(a => {
+            this.zhu=a.data;
+        });
+        // 获取总数
+        this.axios.get("/QuanBu02_zhu").then(a => {
+            this.zhu_zong=a.data.length
+        });
+        this.axios.get("/QuanBu02_youce",{
+        }).then(a => {
+            this.youce=a.data;
+        });
     }
 }
 </script>
@@ -177,11 +205,9 @@ a.weizhi-2:hover .weizhi-1{
     width: 0;height: 0;overflow: hidden;
 }
 
-ul.h40>li>a{font-size: 18px;}
-ul.h40>li:hover>a{color: #fff !important;}
 .xuanfu-1,.xuanfu-1+li:hover,.xuanfu-1+li+li:hover{background-color: #62ab00;border: 1px solid #62ab00 !important;color: #fff;}
 
-.bofang{left: 54px; top: 38px;width: 60px;height: 60px;box-shadow: 0 0 5px #83838375;border-radius: 50%;}
+.bofang{left: 60px; top: 38px;width: 60px;height: 60px;box-shadow: 0 0 5px #83838375;border-radius: 50%;}
 
 .zi-1{font-size: 14px;}
 .zi-1>li>a:first-child{font-size: 22px;font-weight: bold;color: rgb(58, 58, 58);}
