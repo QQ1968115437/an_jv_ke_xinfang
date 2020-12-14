@@ -121,6 +121,7 @@ https://animate.style/  <!-- Animate.css -->
 https://tool.oschina.net/  <!-- 在线工具 -->
 https://www.php.cn/xiazai/tool/17  <!-- php中文网工具箱 -->
 https://developer.mozilla.org/zh-CN/ <!-- MDN web docs -->
+https://www.webpackjs.com/ <!-- webpack -->
 
 </4>
 
@@ -209,6 +210,38 @@ SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_
         _gte大于，_lte小于， _ne非， _like模糊查询 
     6、q全局搜索（模糊查询）
 </7>
+
+<8><!-- webpack -->
+运行在Nodejs中
+    核心概念：
+    (0)mode：运行模式，可以指定为production或者development
+    (1)entry：入口，指定资源包的入口文件
+    (2)output：输出，指定最终输出的资源包文件
+    (3)loader：加载器，让Webpack可以处理非JS文件，如CSS/图片等
+    (4)plugin：插件，可以进一步扩展Webpack本身的功能
+
+使用过程：
+    (1)创建客户端项目，编写HTML/CSS/JS/图片等文件
+    (2)创建项目的描述文件：package.json
+      npm  init
+    (3)下载webpack及其依赖的模块，并添加为当前项目的“开发阶段依赖模块”
+      npm  i   webpack   --save-dev
+      npm  i   webpack-cli   --save-dev
+    (4)创建webpack主配置文件： webpack.config.js
+      module.exports = {
+          mode: 'production',
+          entry: './src/index.js',
+          output: {
+              path: __dirname + '/dist',
+              filename: 'bundle.js'
+            },
+            module: { },
+            plugins: [ ]
+        }
+    (5)运行webpack，根据主配置文件对静态资源进行打包
+        node  ./node_modules/webpack/bin/webpack.js
+        或者配置为scripts： "build": "webpack"，用 npm  run  build方式运行
+</8>
 
 <100><!-- Git类 -->
 ---------------------------------------------------------------------
