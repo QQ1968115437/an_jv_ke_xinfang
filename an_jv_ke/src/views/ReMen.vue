@@ -5,36 +5,23 @@
             <!-- 轮播图 -->
             <lunbo/>
             <!-- 中间 -->
-            <div class="row no-gutters mt-4">
+            <div class="row no-gutters mt-4 justify-content-between">
                 <!-- 左 -->
                 <div class="col-9">
-                    <div class="w888">
-                        <h5 class="font-weight-light mb-3">[海淀 四季青]  融创香山壹號院</h5>
+                    <div class="w888" v-for="(z,i) of zhu" :key="i">
+                        <h5 class="font-weight-light mb-3">{{z.wen1}}</h5>
                         <div class="d-flex">
-                            <div class="w-50"><img class="w-100" src="../img/ReMen/ryjx260n.jpg" alt=""></div>
+                            <div class="w-50"><img class="w-100" :src="require(`../img/ReMen/${z.imgs}`)" alt=""></div>
                             <div class="w-50">
-                                <h5 class="ml-4 mb-5">海淀西四环阔景洋房</h5>
+                                <h5 class="ml-4 mb-5">{{z.wen2}}</h5>
                                 <div class="row no-gutters ml-4 ">
-                                    <p class="col-6 text-dark">
-                                        <span class="text-success">价格</span>
-                                        待定
-                                    </p>
-                                    <p class="col-6 text-dark">
-                                        <span class="text-success">地段</span>
-                                        海淀西四环
-                                    </p>
-                                    <p class="col-6 text-dark">
-                                        <span class="text-success">户型</span>
-                                        3室165平 4室179平
-                                    </p>
-                                    <p class="col-6 text-dark">
-                                        <span class="text-success">特色</span>
-                                        阔景洋房
+                                    <p class="col-6 text-dark" v-for="(m,n) in z.wen3" :key="n">
+                                        <span class="text-success">{{n}}</span>{{m}}
                                     </p>
                                 </div>
                                 <div class="p-3 baoming">
                                     <div>
-                                        <h3 class="m-0">海淀西四环阔景洋房</h3>
+                                        <h3 class="m-0">{{z.wen4}}</h3>
                                         <span>立即报名</span>
                                     </div>
                                     <div>
@@ -43,7 +30,7 @@
                                             还剩：
                                             <span>07 天 08 时 19 分 24 秒</span>
                                         </div>
-                                        <span><span class="text-danger">90</span>人已参加</span>
+                                        <span><span class="text-danger">{{z.ren}}</span>人已参加</span>
                                     </div>
                                 </div>
                             </div>
