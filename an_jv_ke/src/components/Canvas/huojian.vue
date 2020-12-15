@@ -1,4 +1,5 @@
 <template>
+<div>
     <ul class="d-flex float-right m-0" style="cursor: pointer;user-select: none;">
         <li :class="ys" @click="shang()">上一页</li>
 
@@ -18,6 +19,9 @@
 
         <li :class="ys" @click="xia()">上一页</li>
     </ul>
+
+    <div><img src="./aa.svg" alt=""></div>
+</div>
 </template>
 
 <script>

@@ -2,10 +2,10 @@
 <template>
     <div id="QuanBu02" class="row no-gutters justify-content-between">
         <div class="w-76">
-            <ul class="row no-gutters h40 border-bottom text-center">
-                <li class="col-2 py-2 border xuanfu-1">全部楼盘</li>
-                <li class="col-2 py-2 border">♙ 近期开盘</li>
-                <li class="col-2 py-2 border">♔ 优惠楼盘</li>
+            <ul class="row no-gutters h40 border-bottom text-center" @click="lan">
+                <li id="x1" class="col-2 py-2 border xuanfu-1">全部楼盘</li>
+                <li id="x2" class="col-2 py-2 border">♙ 近期开盘</li>
+                <li id="x3" class="col-2 py-2 border">♔ 优惠楼盘</li>
             </ul>
             <div class="h50 text-right pt-3">
                 <span class="float-left">共有<em class="text-danger">{{zhu_zong}}</em>个符合要求的<em>北京楼盘</em></span>
@@ -109,6 +109,16 @@ export default {
             }).then(a => {
                 this.zhu=a.data;
             });
+        },
+        lan(e){
+            if(e.target.nodeName=="LI"){
+                switch (e.target.id) {
+                    case x1:break;
+                    case x2:break;
+                    case x3:break;
+                    default:break;
+                }
+            }
         }
     },
     mounted() {
