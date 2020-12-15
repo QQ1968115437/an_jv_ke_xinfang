@@ -20,7 +20,7 @@
         <li :class="ys" @click="xia()">上一页</li>
     </ul>
 
-    <div><img src="./aa.svg" alt=""></div>
+    <!-- <div><img src="./aa.svg" alt=""></div> -->
 </div>
 </template>
 

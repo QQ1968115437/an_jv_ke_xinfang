@@ -4,7 +4,7 @@
         <div class="h347 my-3 borderp-3 border">
             <!-- 位置 -->
             <div>位置：
-                <span id="qvyv" :class="qvyv1"><a href="#" @mouseover="a01">区域找房<i>▼</i></a></span>
+                <span id="qvyv" :class="qvyv1"><a href="#" @mouseover="a01">区域找房<img src="@/img/header/caret-down-fill.svg"></a></span>
                 <span class="ml-4" :class="qvyv2"><a href="#" @mouseover="a02">地铁找房<i>▼</i></a></span>
                 <ul class="nav quan" v-if="aa1">
                     <li class="nav-item" v-for="(z,i) of qvyv.a" :key="i"><router-link class="nav-link" :to="z.href">{{z.wen}}</router-link></li>
