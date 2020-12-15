@@ -11,8 +11,8 @@
                 <span class="float-left">共有<em class="text-danger">{{zhu_zong}}</em>个符合要求的<em>北京楼盘</em></span>
                 <span>
                     <a href="#" class="text-danger">默认排序</a>
-                    <a href="#" class="ml-2 mr-1">价格</a>▼
-                    <a href="#" class="ml-2 mr-1">开盘时间</a>▼
+                    <a href="#" class="ml-2 mr-1">价格</a><img src="@/img/header/caret-down-fill.svg" alt="">
+                    <a href="#" class="ml-2 mr-1">开盘时间</a><img src="@/img/header/caret-down-fill.svg" alt="">
                 </span>
             </div>
             <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div>
@@ -42,7 +42,7 @@
                     <li>
                         <img :src="require(`@/img/QuanBu/${z.bang}`)" alt="">
                         <span class="ml-2">{{z.banged}}</span>
-                        <span class="float-right">▼ {{z.hd}}</span>
+                        <span class="float-right"><img src="@/img/header/caret-down-fill.svg"> {{z.hd}}</span>
                     </li>
                 </ul>
             </div>

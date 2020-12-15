@@ -4,8 +4,8 @@
         <div class="h347 my-3 borderp-3 border">
             <!-- 位置 -->
             <div>位置：
-                <span id="qvyv" :class="qvyv1"><a href="#" @mouseover="a01">区域找房<img src="@/img/header/caret-down-fill.svg"></a></span>
-                <span class="ml-4" :class="qvyv2"><a href="#" @mouseover="a02">地铁找房<i>▼</i></a></span>
+                <span id="qvyv" class="hong" :class="qvyv1"><a href="#" @mouseover="a01">区域找房<i></i></a></span>
+                <span class="ml-4 hong" :class="qvyv2"><a href="#" @mouseover="a02">地铁找房<i></i></a></span>
                 <ul class="nav quan" v-if="aa1">
                     <li class="nav-item" v-for="(z,i) of qvyv.a" :key="i"><router-link class="nav-link" :to="z.href">{{z.wen}}</router-link></li>
                 </ul>
@@ -16,8 +16,8 @@
             <i class="xuxian"></i>
             <!-- 价格 -->
             <div class="my-2">价格：
-                <span id="jiage" :class="jiage1"><a href="#" @mouseover="b01">单价<i>▼</i></a></span>
-                <span class="ml-4" :class="jiage2"><a href="#" @mouseover="b02">总价<i>▼</i></a></span>
+                <span id="jiage" class="hong" :class="jiage1"><a href="#" @mouseover="b01">单价<i></i></a></span>
+                <span class="ml-4 hong" :class="jiage2"><a href="#" @mouseover="b02">总价<i></i></a></span>
                 <ul class="nav quan" v-if="bb1">
                     <li class="nav-item" v-for="(z,i) of jiage.a" :key="i"><router-link class="nav-link" :to="z.href">{{z.wen}}</router-link></li>
                 </ul>
@@ -93,15 +93,16 @@
 <style scoped>
 #QuanBu01 .h347{height: 347px;padding: 15px 15px 5px;}
 #QuanBu01 .xuxian{width: 100%;height: 1px;border-bottom: 1px dashed rgb(223, 223, 223);display: block;}
-.qvyv>a,.jiage>a,.qvyv>a>i,.jiage>a>i{color: rgb(255, 114, 58) !important;}
+.qvyv>a,.jiage>a{color: rgb(255, 114, 58) !important;}
+.hong i{display: inline-block;width: 12px;height: 10px; background-image: url("../../img/header/caret-down-fill.svg");background-repeat: no-repeat;}
+.hong:hover i{background-image: url("../../img/header/caret-down-fill hong.svg")}
+.qvyv i,.jiage i{background-image: url("../../img/header/caret-down-fill hong.svg")}
 
 #QuanBu01 a{font-size: 14px;color: rgb(80, 80, 80);}
 #QuanBu01 a:hover{color: rgb(255, 108, 41);}
 #QuanBu01 .quan>li:first-child a,#QuanBu01 .quan2>li:nth-child(2) a{color: rgb(255, 51, 0);}
 
-.h347>div i{font-size: 5px;color: rgb(85, 85, 85);}
 .h347>div{font-size: 14px;color: rgb(85, 85, 85);}
-#QuanBu01 a:hover>i{color: rgb(255, 99, 37);}
 
 #QuanBu01 .dropdown-menu {
     min-width: 6rem;
