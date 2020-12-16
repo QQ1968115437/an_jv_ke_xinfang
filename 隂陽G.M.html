@@ -282,11 +282,35 @@ SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_
 </10>
 
 <11><!-- ECharts图表库 -->
+    https://echarts.apache.org/zh/index.html
+    https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts
+
     npm install --save echarts 
     A.在 HTML 页面中创建 DIV 元素，该 DIV 将作为图表渲染容器出现，必须为该 DIV元素设置明确的宽度和高度 
     B.书写 script 标签，并且调用 echarts 对象的 init()方法以完成图表实例的 创建，init()方法的语法结构建如下：
     C.通过图表实例的 setOption()方法实现实例的配置
     instance.setOption({...}) 
+
+    var a = echarts.init(document.getElementById('a001'), 'vintage');
+    var b={
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    }
+    a.setOption(b);
 
     1. 配置项
     title组件用于控制标题信息
@@ -326,6 +350,22 @@ SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_
             } 
         ]
 </11>
+
+<12><!-- 微信小程序 -->
+    "pages"属性用于指定小程序中的页面组成，而且数组中的 第一项将作为首页显示。 
+
+    • .json，静态配置文件 
+        – app.json,整个项目的全局配置文件 
+        – page.json,每个页面专有的配置文件，如 index.json 
+    • .js/.ts,脚本文件 
+        – app.js,整个项目的入口脚本文件 
+        – page.js，每个页面专有的脚本文件 
+    • .wxml,页面的模板文件(不能使用任何的 HTML 标签，只能使用小程序专有的标签 ) 
+    • wxss,页面的样式文件 
+        – app.wxss，整个项目的样式文件 
+        – page.wxss，每个页面专用的样式文件
+    app.json、app.wxss、app.js 必须位于小程序的根目录下。
+</12>
 
 <100><!-- Git类 -->
 ---------------------------------------------------------------------

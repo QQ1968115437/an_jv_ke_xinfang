@@ -2,10 +2,10 @@
 <template>
     <div id="QuanBu02" class="row no-gutters justify-content-between">
         <div class="w-76">
-            <ul class="row no-gutters h40 border-bottom text-center" @click="lan">
-                <li id="x1" class="col-2 py-2 border xuanfu-1">全部楼盘</li>
-                <li id="x2" class="col-2 py-2 border">♙ 近期开盘</li>
-                <li id="x3" class="col-2 py-2 border">♔ 优惠楼盘</li>
+            <ul class="d-flex h40 border-bottom text-center lan1">
+                <li :class="xf1" @click="d1(1,'zhu')">全部楼盘</li>
+                <li :class="xf2" @click="d1(2,'jinqi')">♙ 近期开盘</li>
+                <li :class="xf3" @click="d1(3,'youhui')">♔ 优惠楼盘</li>
             </ul>
             <div class="h50 text-right pt-3">
                 <span class="float-left">共有<em class="text-danger">{{zhu_zong}}</em>个符合要求的<em>北京楼盘</em></span>
@@ -50,7 +50,7 @@
             <!-- 分页条 -->
             <div class="mt-5 clearfix mb-4">
                 <div class=" mt-2 float-left text-info">共有{{zhu_zong}}个有关北京新房楼盘</div>
-                <ul class="d-flex float-right" style="cursor: pointer;user-select: none;" @click="fenye">
+                <ul class="d-flex float-right" style="cursor: pointer;" @click="fenye">
                     <li class="btn-sm btn-success px-3 ml-2 disabled">上一页</li>
                     <li v-for="i of zhu_zong/10" :key="i" class="btn-sm btn-success px-3 ml-2">{{i}}</li>
                     <li class="btn-sm btn-success px-3 ml-2">下一页</li>
@@ -89,7 +89,7 @@
 export default {
     data() {
         return {
-            zhu:[],youce:[],cha:0,zhu_zong:"",tiao:10
+            zhu:[],youce:[],cha:0,zhu_zong:"",tiao:10,xf1:"xuan",xf2:"",xf3:""
         }
     },
     methods: {
@@ -110,15 +110,14 @@ export default {
                 this.zhu=a.data;
             });
         },
-        lan(e){
-            if(e.target.nodeName=="LI"){
-                switch (e.target.id) {
-                    case x1:break;
-                    case x2:break;
-                    case x3:break;
-                    default:break;
-                }
-            }
+        // 中间切换楼盘
+        d1(e,f){
+            let a,b,c,d="xuan";
+            if(e==1){a=d}else if(e==2){b=d}else{c=d};
+            this.xf1=a;this.xf2=b;this.xf3=c;
+            this.axios.get(`/QuanBu02_${f}`).then(a => {
+                this.zhu=a.data;
+            });
         }
     },
     mounted() {
@@ -215,7 +214,8 @@ a.weizhi-2:hover .weizhi-1{
     width: 0;height: 0;overflow: hidden;
 }
 
-.xuanfu-1,.xuanfu-1+li:hover,.xuanfu-1+li+li:hover{background-color: #62ab00;border: 1px solid #62ab00 !important;color: #fff;}
+.lan1>li{padding: 5px 15px;border: 1px solid #d6d6d6;font-size: 18px;cursor: pointer}
+.xuan,.lan1>li:hover{background-color: #62ab00;border: 1px solid #62ab00 !important;color: #fff;}
 
 .bofang{left: 60px; top: 38px;width: 60px;height: 60px;box-shadow: 0 0 5px #83838375;border-radius: 50%;}
 

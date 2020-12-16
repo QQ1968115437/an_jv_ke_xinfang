@@ -25,10 +25,9 @@
                                         <span>立即报名</span>
                                     </div>
                                     <div>
-                                        <div>
-                                            <i>❖</i>
-                                            还剩：
-                                            <span>07 天 08 时 19 分 24 秒</span>
+                                        <div>{{zhu.times}}
+                                            <img src="@/img/ReMen/clock.svg" width="14">
+                                            还剩：<daoshi :shi="z.times"/>
                                         </div>
                                         <span><span class="text-danger">{{z.ren}}</span>人已参加</span>
                                     </div>
@@ -54,34 +53,10 @@
                         <div>
                             <h5>订阅优惠信息</h5>
                             <p class="m-0">没有满意的优惠？输入以下信息，完成个性优惠订阅</p>
-                            期望区域：<select>
+                            期望区域：
+                            <select>
                                 <option value="qiwang-0">请选择</option>
-                                <option value="qiwang-1">雄安新区</option>
-                                <option value="qiwang-2">固安</option>
-                                <option value="qiwang-3">廊坊</option>
-                                <option value="qiwang-4">香河</option>
-                                <option value="qiwang-5">燕郊</option>
-                                <option value="qiwang-6">永清</option>
-                                <option value="qiwang-7">涿州</option>
-                                <option value="qiwang-8">大厂</option>
-                                <option value="qiwang-9">北京周边</option>
-                                <option value="qiwang-10">天津</option>
-                                <option value="qiwang-11">朝阳</option>
-                                <option value="qiwang-11">海淀</option>
-                                <option value="qiwang-11">丰台</option>
-                                <option value="qiwang-11">东城</option>
-                                <option value="qiwang-11">西城</option>
-                                <option value="qiwang-11">石景山</option>
-                                <option value="qiwang-11">昌平</option>
-                                <option value="qiwang-11">通州</option>
-                                <option value="qiwang-11">大兴</option>
-                                <option value="qiwang-11">顺义</option>
-                                <option value="qiwang-11">怀柔</option>
-                                <option value="qiwang-11">房山</option>
-                                <option value="qiwang-11">门头沟</option>
-                                <option value="qiwang-11">密云</option>
-                                <option value="qiwang-11">平谷</option>
-                                <option value="qiwang-11">延庆</option>
+                                <option value="qiwang-1" v-for="(z,i) of zhu" :key="i">{{z.wen1.qv1}}</option>
                             </select><br>
                             手机号码：<input type="text" class="px-2" placeholder="请输入手机号码">
                             <button class="btn btn-success mt-2 w-100">订阅</button>
@@ -140,11 +115,12 @@
 import myheader from '@/components/myheader/myheader'
 import lunbo from '@/components/ReMen/lunbo'
 import GunDong from '@/components/ReMen/GunDong'
+import daoshi from '@/components/ReMen/daoshi'
 import myfooter from '@/components/myfooter/myfooter'
 
 export default {
     components: {
-        myheader,myfooter,lunbo,GunDong
+        myheader,myfooter,lunbo,GunDong,daoshi
     },
     data () {
         return {
@@ -215,7 +191,7 @@ img:hover{background-color: #e9e9e938;cursor: pointer;}
 .h148{height: 148px;margin-top: 40px;border: 1px solid #ffae6b70;}
 .h148>div{height: 100%;padding: 20px 35px !important;color: rgb(85, 85, 85)}
 .h148>div:nth-child(1) input{padding: 6px;border: 1px solid rgb(190, 190, 190);font-size: 15px;}
-.h148>div:nth-child(1) span{padding: 8px 20px !important;user-select: none; background-color: #ffa053;color: #fff;}
+.h148>div:nth-child(1) span{padding: 8px 20px !important; background-color: #ffa053;color: #fff;}
 .h148>div:nth-child(1) span:hover{background-color: #ff3939;}
 .h148>div a{color: rgb(148, 148, 148);font-size: 14px;display: block;}
 .h148>div a:hover{color: rgb(255, 151, 103);text-decoration: none;}

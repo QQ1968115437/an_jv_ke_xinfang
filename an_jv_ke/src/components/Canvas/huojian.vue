@@ -1,6 +1,6 @@
 <template>
 <div>
-    <ul class="d-flex float-right m-0" style="cursor: pointer;user-select: none;">
+    <ul class="d-flex float-right m-0" style="cursor: pointer;">
         <li :class="ys" @click="shang()">上一页</li>
 
         <ul v-for="i of zhu_zong" :key="i">

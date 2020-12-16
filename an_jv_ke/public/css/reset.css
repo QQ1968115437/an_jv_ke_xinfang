@@ -51,3 +51,4 @@ table {
 	border-spacing: 0;
 }
 a{text-decoration: none !important}
+div,ul,li,img{user-select: none;}
