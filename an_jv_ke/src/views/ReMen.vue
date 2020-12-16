@@ -9,7 +9,7 @@
                 <!-- 左 -->
                 <div class="col-9">
                     <div class="w888" v-for="(z,i) of zhu" :key="i">
-                        <h5 class="font-weight-light mb-3">{{z.wen1}}</h5>
+                        <h5 class="font-weight-light mb-3">[{{z.wen1.qv1}} {{z.wen1.qv2}}] {{z.wen1.t}}</h5>
                         <div class="d-flex">
                             <div class="w-50"><img class="w-100" :src="require(`../img/ReMen/${z.imgs}`)" alt=""></div>
                             <div class="w-50">
