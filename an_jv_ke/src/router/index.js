@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import QuanBu from '../views/QuanBu.vue'
 import ReMen from '../views/ReMen.vue'
-import 测试 from '../views/测试.vue'
+import KanFang from '../views/KanFang.vue'
 
 Vue.use(VueRouter)
 
@@ -19,8 +19,8 @@ const routes = [
   },
   {
     path: '/002',
-    name: '测试',
-    component: 测试
+    name: 'KanFang',
+    component: KanFang
   }
 ]
 

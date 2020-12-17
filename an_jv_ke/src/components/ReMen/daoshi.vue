@@ -13,7 +13,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.shi);
         setInterval(()=>{
             let sum=this.shi;
             if (sum>=0) {
@@ -26,7 +25,7 @@ export default {
                 if (this.min <= 9) this.min = '0' + this.min;
                 if (this.second <= 9) this.second = '0' + this.second;
             }
-            this.sum--;
+            // this.shi--;
         },1000)
     }
 }
