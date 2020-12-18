@@ -1,6 +1,6 @@
 .DS_Store
 /dist
-
+an_jv_ke\node_modules\.cache
 
 # local env files
 .env.local

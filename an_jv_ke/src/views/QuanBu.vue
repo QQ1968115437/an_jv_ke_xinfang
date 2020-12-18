@@ -1,8 +1,8 @@
 <template>
-  <div class="QuanBu">
+  <div>
     <myheader/>
     
-    <div class="QuanBu0">
+    <div class="yt1">
       <quan-bu01/>
       <quan-bu02/>
       <quan-bu03/>
@@ -25,7 +25,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .QuanBu0{width: 1180px;margin: auto;}
-</style>
