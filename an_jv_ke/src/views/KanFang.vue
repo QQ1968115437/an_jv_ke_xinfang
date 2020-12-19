@@ -47,7 +47,8 @@
 					<div>往期看房团回顾</div>
 					<div>更多>></div>
 				</div>
-				<div class="d-flex justify-content-around">
+				<!-- v-if="AA3.length>0" 解决加载前属性未定义 -->
+				<div class="d-flex justify-content-around" v-if="AA3.length>0">
 					<div v-for="i of 4" :key="i" class="pt-3 tu1">
 						<div><img :src="require(`@/img/KanFang/huigu/${AA3[i-1].imgs}`)" class="w-100 h-100"></div>
 						<p>{{AA3[i-1].wen1}}</p>
