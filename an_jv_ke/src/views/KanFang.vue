@@ -35,6 +35,12 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- 中间 -->
+			<div class="d-flex">
+				<div class="w-75">5</div>
+				<div class="w-25">5</div>
+			</div>
 			<!-- 底部 -->
 			<div class="border mt-3 w-75">
 				<div class="border-bottom tw">
@@ -62,7 +68,7 @@
 
 					<!-- 超多重显示优化  v-else-if="aa1==i里i是父级传递的* -->
 					<div v-for="(z,i) in AA4" :key="i">
-						<ul v-if="aa1=='雄安新区'?true:false" class="d-flex flex-wrap m-0">
+						<ul v-if="aa1=='1'?true:false" class="d-flex flex-wrap m-0">
 							<li v-for="n of AA4.雄安新区" :key="n" class="pr-3">{{n}}</li>
 						</ul>
 						<ul v-else-if="aa1==i?true:false" class="d-flex flex-wrap m-0">
@@ -109,7 +115,7 @@ export default {
     this.axios.get("/KanFang").then(a => {
           this.AA1=a.data.zhuan_che;
           this.AA2=a.data.da_ba;
-          this.AA3=a.data.huigu;
+		  this.AA3=a.data.huigu;
           this.AA4=a.data.zhida;
     });
   }
