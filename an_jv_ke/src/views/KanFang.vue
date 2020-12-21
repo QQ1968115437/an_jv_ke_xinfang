@@ -37,12 +37,45 @@
 			</div>
 
 			<!-- 中间 -->
-			<div class="d-flex">
+			<div class="d-flex mt-3">
 				<div class="w-75">
-					<div class="anquan mt-3">安全提示：看房出门前请务必配佩戴口罩出行，做好防护措施</div>
+					<div class="anquan">安全提示：看房出门前请务必配佩戴口罩出行，做好防护措施</div>
+
+					<div class="border mt-2">
+						<div class="border-bottom tw">
+							<div>免费专车看房</div>
+							<div>
+								<router-link to="1" class="mr-2">上一页</router-link>
+								<router-link to="1">下一页</router-link>
+							</div>
+						</div>
+						<div v-for="(z,i) of BB1" :key="i" class="d-flex mx-3 py-3 xuxian">
+							<div class="img_k1"><img :src="require(`../img/ReMen/${z.imgs}`)" alt=""></div>
+							<div class="w-100 pl-4 col_dan">
+								<div class="mb-3">
+									<span class="col_dan1 text-secondary">[{{z.wen1.qv1}}] {{z.wen1.t}}</span>
+									<span class="float-right">总价 <b class="h3 text-danger">{{z.wen3.价格}}</b>万元/套起</span>
+								</div>
+								<p>看房优惠 <span class="text-danger ml-2">案场优惠</span></p>
+								<p>服务承诺 <span class="ml-2">免费专车 一对一来回接送 随时看房</span></p>
+								<p>推荐理由 
+									<span class="px-2 border ml-2">免费专车</span>
+									<span class="px-2 border ml-2">刚需直选</span>
+									<span class="px-2 border ml-2">花园洋房</span>
+									<span class="px-2 border ml-2">自持物业</span>
+								</p>
+
+								<div>
+									<button class="btn btn-success px-4">约车看房</button>
+									<span class="ml-3"><span class="text-danger">{{z.ren}}</span> 人已参加</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="w-25">5</div>
+				<div class="w-25"></div>
 			</div>
+
 			<!-- 底部 -->
 			<div class="border mt-3 w-75">
 				<div class="border-bottom tw">
@@ -98,7 +131,8 @@ export default {
   },
   data () {
     return {
-      AA1:[],AA2:[],AA3:[],AA4:{},a1:true,lvv1:"lv2",lvv2:"",aa1:"雄安新区"
+	  AA1:[],AA2:[],AA3:[],AA4:{},a1:true,lvv1:"lv2",lvv2:"",aa1:"雄安新区",
+	  BB1:[]
     }
   },
   methods: {
@@ -120,7 +154,10 @@ export default {
           this.AA2=a.data.da_ba;
 		  this.AA3=a.data.huigu;
           this.AA4=a.data.zhida;
-    });
+	});
+	this.axios.get("/ReMen01").then(a=>{
+        this.BB1=a.data.zhu;
+    })
   }
 }
 </script>
@@ -149,6 +186,7 @@ export default {
 .kan>div{
   width: 90px;
   color: #fff;
+  margin-top: 20px;
   padding: 5px 0;
   text-align: center;
   font-size: 15px;
@@ -163,19 +201,29 @@ export default {
 .lv>div>span:hover{color: #f00;}
 /* <!-- 顶部结束 --> */
 
+
 /* <!-- 中间开始 --> */
 .anquan{padding: 8px 20px;color: #f56d40;background-color: #fee9e3;font-size: 12px;}
+.img_k1>img{width: 300px;height: 200px;border-radius: 10px;cursor: pointer;}
+.xuxian{border-bottom: 1px dashed rgb(223, 223, 223);}
+.col_dan p,.col_dan span{color: #9b9b9b;font-size: 14px;}
+.col_dan>p>span{color: #9b9b9b;font-size: 14px;}
+.col_dan1{font-size: 24px !important;}
 /* <!-- 中间结束 --> */
+
 
 /* <!-- 底部开始 --> */
 .tw{display: flex;justify-content: space-between;align-items: center;background-color: #f9f9f9;height: 50px;}
+.tw>div a{color: #818181}
 .tw>div{padding: 0 20px;font-size: 18px;}
 .tw>div:last-child{font-size: 13px;color: #818181;}
+.tw>div a:hover,.tw>div:last-child:hover{color: #fc6a6a;cursor: pointer;}
 .tu1>p{width: 200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;margin: 5px 0;}
 .tu1>p:last-child{font-size: 14px;margin-bottom: 18px;}
 .tu1>p>span{color: rgb(255, 94, 0);}
 .tu1:hover{background-color: #f3f3f3;cursor: pointer;}
 .tu1>div{width: 200px; height: 150px;}
+.tu1>div>img{border-radius: 10px;}
 
 .zd{color: #858585;height: 120px;}
 .zd>div>div>ul>li:hover{color: #d46a6a;cursor: pointer;}

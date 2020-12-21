@@ -58,7 +58,9 @@
             <!-- 页头-下-->
             <div class="yt003">
                 <ul class="nav">
-                    <li v-for="(z,i) in yt3" :key="i" class="nav-item"><router-link :to="z" class="nav-link m-0 h6">{{i}}</router-link></li>
+                    <li v-for="(z,i) in yt3" :key="i" class="nav-item">
+                        <router-link :to="z" class="nav-link m-0 h6">{{i}}</router-link>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -172,11 +174,8 @@ export default {
     height: 100%;
     color: #fff;
 }
-.yt003 .nav .nav-item .active {
-    background-color: #599700;
-}
 .yt003 .nav .nav-item a:hover,.nav .nav-item a:focus {
     background-color: #599700;
 }
-.yt003 ul>li:nth-child(1)>a{background-color: #599700;}
+.upd{background-color: #599700;}
 </style>
