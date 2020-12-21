@@ -38,7 +38,9 @@
 
 			<!-- 中间 -->
 			<div class="d-flex">
-				<div class="w-75">5</div>
+				<div class="w-75">
+					<div class="anquan mt-3">安全提示：看房出门前请务必配佩戴口罩出行，做好防护措施</div>
+				</div>
 				<div class="w-25">5</div>
 			</div>
 			<!-- 底部 -->
@@ -160,6 +162,10 @@ export default {
 .lv>div{color: rgb(51, 51, 51);font-size: 14px;top:54px;position: absolute;padding-left: 25px;}
 .lv>div>span:hover{color: #f00;}
 /* <!-- 顶部结束 --> */
+
+/* <!-- 中间开始 --> */
+.anquan{padding: 8px 20px;color: #f56d40;background-color: #fee9e3;font-size: 12px;}
+/* <!-- 中间结束 --> */
 
 /* <!-- 底部开始 --> */
 .tw{display: flex;justify-content: space-between;align-items: center;background-color: #f9f9f9;height: 50px;}

@@ -365,6 +365,24 @@ SELECT r.id,subject,content,created_at,nickname,avatar,article_number FROM xzqa_
         – app.wxss，整个项目的样式文件 
         – page.wxss，每个页面专用的样式文件
     app.json、app.wxss、app.js 必须位于小程序的根目录下。
+
+    <button size="mini" type="warn" bindtap="shan" data-index="{{index}}">删除</button>    data-收集数据传回到逻辑层
+
+    <block> 包装元素，不会在页面中做任何渲染，只接受控制属性 wx:if/wx:for
+
+        <!-- 消息提示框中函数中this指向问题：箭头函数解 -->
+        wx.showModal({
+            title: '提示',
+            content: '！！！是否删除 ！！！',
+            success: (res)=>{
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wen.splice(index,1);
+                this.setData({wen:wen});
+              }
+            }
+          })
+          <!-- ************** -->
 </12>
 
 <100><!-- Git类 -->
