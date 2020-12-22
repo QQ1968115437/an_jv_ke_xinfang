@@ -6949,57 +6949,5 @@
         "世茂•国风雅颂"
       ]
     }
-  },
-  "users": [
-    {
-      "user": "a111",
-      "password": "a111111",
-      "id": 1
-    },
-    {
-      "user": "a222",
-      "password": "a222222",
-      "id": 2
-    },
-    {
-      "user": "a222",
-      "password": "a222222",
-      "id": 3
-    },
-    {
-      "user": "a222",
-      "password": "a222222",
-      "id": 4
-    },
-    {
-      "user": "a222",
-      "password": "a222222",
-      "id": 5
-    },
-    {
-      "user": "a222",
-      "password": "a222222",
-      "id": 6
-    },
-    {
-      "user": "a333",
-      "password": "a222222",
-      "id": 7
-    },
-    {
-      "user": "a222222",
-      "password": "a222222",
-      "id": 8
-    },
-    {
-      "user": "a2222",
-      "password": "a222222",
-      "id": 9
-    },
-    {
-      "user": "a22222",
-      "password": "a222222",
-      "id": 10
-    }
-  ]
+  }
 }
