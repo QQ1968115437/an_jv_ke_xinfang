@@ -73,7 +73,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="w-25"></div>
+				<div class="w-25 pl-3">
+					<div class="h90"></div>
+					<div class="border px-4 py-3 mt-3">
+						<p>专车看房活动楼盘 {{1187}} 个</p>
+						<p class="text-secondary">参加人数 <span class="ml-3 text-danger">{{22773}}</span></p>
+						<p class="mb-0">查看免费专车活动页>></p>
+					</div>
+					<div class="border pl-4 py-2 mt-3 d-flex" style="color: #60ad00">
+						<b style="font-size: 40px" class="mr-2">☏</b>
+						<div>
+							<div class="text-secondary">看房热线:</div>
+							<div class="h3">400-890-9320</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<!-- 底部 -->
@@ -209,6 +223,8 @@ export default {
 .col_dan p,.col_dan span{color: #9b9b9b;font-size: 14px;}
 .col_dan>p>span{color: #9b9b9b;font-size: 14px;}
 .col_dan1{font-size: 24px !important;}
+
+.h90{height: 90px;background-image: url("https://pages.anjukestatic.com/xinfang/img/house/hui/s-carActive.jpg");}
 /* <!-- 中间结束 --> */
 
 
