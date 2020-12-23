@@ -6,11 +6,8 @@
 				<li v-for="(z,i) in AA4" :key="i" class="pr-3"  @mouseover="chuan(i)">{{i}}</li>
 			</ul>
 			<!-- 超多重显示优化  v-else-if="aa1==i里i是父级传递的* -->
-			<div v-for="(z,i) in AA4" :key="i">
-				<ul v-if="aa1=='1'?true:false" class="d-flex flex-wrap m-0">
-					<li v-for="n of AA4.雄安新区" :key="n" class="pr-3">{{n}}</li>
-				</ul>
-				<ul v-else-if="aa1==i?true:false" class="d-flex flex-wrap m-0">
+			<div v-for="(z,i) in AA4" :key="i" >
+				<ul v-if="aa1==i?true:false" class="d-flex flex-wrap m-0">
 					<li v-for="n of z" :key="n" class="pr-3">{{n}}</li>
 				</ul>
 			</div>

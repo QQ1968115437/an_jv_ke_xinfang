@@ -6084,7 +6084,7 @@
           "特色": "阔景洋房"
         },
         "wen4": "海淀西四环阔景洋房",
-        "times": 500,
+        "times": 19500,
         "ren": 90,
         "imgs": "ryjx260n.jpg"
       },
@@ -6949,5 +6949,22 @@
         "世茂•国风雅颂"
       ]
     }
-  }
+  },
+  "users": [
+    {
+      "id": 1,
+      "user": "ergerg5",
+      "password": "hgeurilg54"
+    },
+    {
+      "user": "greg",
+      "password": "a111111",
+      "id": 2
+    },
+    {
+      "user": "gregqq",
+      "password": "a111111",
+      "id": 3
+    }
+  ]
 }
