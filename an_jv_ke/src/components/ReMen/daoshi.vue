@@ -1,6 +1,6 @@
 <template>
     <div id="countdown" class="d-inline-block">
-        <span>{{day}} 天{{hour}} 时{{min}} 分{{second}} 秒</span>
+        <span v-if="new_time==0?false:true">{{new_time}}</span>
     </div>
 </template>
 
@@ -9,23 +9,25 @@ export default {
     props: ["shi"],
     data () {
         return {
-            day:"00",hour:"00",min:"00",second:"00"//时间默认值
+            new_time:0
         }
     },
     mounted() {
+        let sum=parseInt(this.shi);
         setInterval(()=>{
-            let sum=this.shi;
+            let day,hour,min,second;
             if (sum>=0) {
-                this.day = Math.floor(sum / (60 * 60 * 24));
-                this.hour = Math.floor(sum / (60 * 60)) - (this.day * 24);
-                this.min = Math.floor(sum / 60) - (this.day * 24 * 60) - (this.hour * 60);
-                this.second = Math.floor(sum) - (this.day * 24 * 60 * 60) - (this.hour * 60 * 60) - (this.min * 60);
-                if (this.day <= 9) this.day = '0' + this.day;
-                if (this.hour <= 9) this.hour = '0' + this.hour;
-                if (this.min <= 9) this.min = '0' + this.min;
-                if (this.second <= 9) this.second = '0' + this.second;
+                day = Math.floor(sum / (60 * 60 * 24));
+                hour = Math.floor(sum / (60 * 60)) - (day * 24);
+                min = Math.floor(sum / 60) - (day * 24 * 60) - (hour * 60);
+                second = Math.floor(sum) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (min * 60);
+                if (day <= 9) day = '0' + day;
+                if (hour <= 9) hour = '0' + hour;
+                if (min <= 9) min = '0' + min;
+                if (second <= 9) second = '0' + second;
             }
-            // this.shi--;
+            this.new_time="还剩："+day+"天"+"  "+hour+"时"+"  "+min+"分"+"  "+second+"秒";
+            sum--;
         },1000)
     }
 }

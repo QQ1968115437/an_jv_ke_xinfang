@@ -68,11 +68,13 @@
 								<div>
 									<button class="btn btn-success px-4">约车看房</button>
 									<span class="ml-3"><span class="text-danger">{{z.ren}}</span> 人已参加</span>
+									<span><daoshi :shi="z.times" class="float-right py-2 text-info"/></span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="w-25 pl-3">
 					<div class="h90"></div>
 					<div class="border px-4 py-3 mt-3">
@@ -109,26 +111,7 @@
 				</div>
 			</div>
 			<!-- 新房直达 -->
-			<div class="border p-3 mt-3 d-flex zd">
-				<div style="width: 110px;">新房直达：</div>
-				<div>
-					<ul class="d-flex flex-wrap m-0">
-						<li v-for="(z,i) in AA4" :key="i" class="pr-3"  @mouseover="chuan(i)">{{i}}</li>
-					</ul>
-
-					<!-- 超多重显示优化  v-else-if="aa1==i里i是父级传递的* -->
-					<div v-for="(z,i) in AA4" :key="i">
-						<ul v-if="aa1=='1'?true:false" class="d-flex flex-wrap m-0">
-							<li v-for="n of AA4.雄安新区" :key="n" class="pr-3">{{n}}</li>
-						</ul>
-						<ul v-else-if="aa1==i?true:false" class="d-flex flex-wrap m-0">
-							<li v-for="n of z" :key="n" class="pr-3">{{n}}</li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-
+			<dx-1 :wen="AA4"/>
 		</div>
 
     	<myfooter/>
@@ -138,10 +121,12 @@
 <script>
 import myheader from '@/components/myheader/myheader'
 import myfooter from '@/components/myfooter/myfooter'
+import daoshi from '@/components/ReMen/daoshi'
+import Dx1 from '../components/ReMen/Dx1'
 
 export default {
   components: {
-    myheader,myfooter
+    myheader,myfooter,daoshi,Dx1
   },
   data () {
     return {
@@ -240,8 +225,5 @@ export default {
 .tu1:hover{background-color: #f3f3f3;cursor: pointer;}
 .tu1>div{width: 200px; height: 150px;}
 .tu1>div>img{border-radius: 10px;}
-
-.zd{color: #858585;height: 120px;}
-.zd>div>div>ul>li:hover{color: #d46a6a;cursor: pointer;}
 /* <!-- 底部结束 --> */
 </style>

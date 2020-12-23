@@ -28,7 +28,7 @@
                                         <div>
                                             <div>{{zhu.times}}
                                                 <img src="@/img/ReMen/clock.svg" width="14">
-                                                还剩：<daoshi :shi="z.times"/>
+                                                <daoshi :shi="z.times" class="ml-2"/>
                                             </div>
                                             <span><span class="text-danger">{{z.ren}}</span>人已参加</span>
                                         </div>
@@ -99,16 +99,6 @@
                         <a href="#">关于我们</a>
                         <a href="#">联系我们</a>
                     </div>
-                </div>
-                <!-- 底部新房直达 -->
-                <div id="zhida" class="p-4 mt-3 border">
-                    <p class="float-left">新房直达：</p>
-                    <ul class="list-unstyled d-flex flex-wrap"> 
-                        <li v-for="(z,i) of zhu" :key="i" class="px-3 pb-2">{{z.wen1.qv1}}</li>
-                        <ul class="list-unstyled d-flex flex-wrap" v-for="(z,i) of zhu" :key="i"> 
-                            <li class="px-3 pb-2">{{z.wen1.t}}</li>
-                        </ul>
-                    </ul>
                 </div>
             </div>
 
@@ -201,8 +191,4 @@ img:hover{background-color: #e9e9e938;cursor: pointer;}
 .h148>div a:hover{color: rgb(255, 151, 103);text-decoration: none;}
 
 .h148 i{height: 80%;border-right: 1px dashed rgb(207, 207, 207);margin: 15px 0 !important;}
-
-/* 直达 */
-#zhida{color: #7a7a7a;cursor: pointer;}
-#zhida ul>li:hover{color: #e25656;}
 </style>
