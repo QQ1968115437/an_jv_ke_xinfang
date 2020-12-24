@@ -58,6 +58,8 @@
                 </ul>
             </div>
         </div>
+        
+        <img src="@/img/e042335e05ff45740e28eb10852d07b0.gif" class="mb-3">
     </div>
 </template>
 

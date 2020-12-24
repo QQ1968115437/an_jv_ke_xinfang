@@ -1,6 +1,6 @@
 <template>
 	<div class="KanFang">
-    	<myheader/>
+    	<myheader :u="4" v-on:shuru="shuru"/>
     
 		<div class="yt1">
 			<!-- 顶部 -->
@@ -89,6 +89,30 @@
 							<div class="h3">400-890-9320</div>
 						</div>
 					</div>
+
+					<ul class="border list-unstyled mt-3">
+						<li class="h37">
+							热门楼盘<span class="float-right mr-4 h6 mt-1">更多>></span>
+						</li>
+						<li class="h220 xuxian m-2" v-for="(z,i) of youce" :key="i">
+							<div class="mb-2"><img class="w-100" :src="require(`@/img/QuanBu/${z.imgs}`)" alt=""></div>
+							<span>{{z.wen1}}</span>
+							<div class="my-1">
+								<span class="text-danger m-0 h6">{{z.wen2}}</span>
+								<i class="float-right">{{z.shu}}人已报名</i>
+							</div>
+							<!-- <i class="xuxian"></i> -->
+						</li>
+					</ul>
+					<div class="h220 border my-3">
+						<h5>北京房价行情</h5>
+						<p class="mb-1">11月均价：<em class="text-danger">40951元/平米</em></p>
+						<p class="mb-1">比10月上涨：<em class="text-danger">↑0.36%</em></p>
+						<div class="mb-2"><img class="w-100" src="@/img/QuanBu/chart.anjukestatic.png" alt=""></div>
+					</div>
+					<div class="h220 border py-2">
+						<img class="w-100 h-100" src="@/img/QuanBu/58_jinrong.jpg" alt="">
+					</div>
 				</div>
 			</div>
 
@@ -114,6 +138,9 @@
 			<dx-1 :wen="AA4"/>
 		</div>
 
+		<!-- 提示框 -->
+        <div v-if="ti==1?true:false" class="tishi">{{tishi}}</div>
+
     	<myfooter/>
 	</div>
 </template>
@@ -131,7 +158,7 @@ export default {
   data () {
     return {
 	  AA1:[],AA2:[],AA3:[],AA4:{},a1:true,lvv1:"lv2",lvv2:"",aa1:"雄安新区",
-	  BB1:[]
+	  BB1:[],youce:[],ti:0,tishi:""
     }
   },
   methods: {
@@ -145,6 +172,21 @@ export default {
 	},
 	chuan(e){
 		this.aa1=e;
+	},
+	// 模糊查询
+	shuru(e){
+		this.axios.get("/ReMen01",{
+            params:{q:e}
+        }).then(a=>{
+            if(a.data.length==0){
+                this.ti=1;this.tishi="没有查询到,请重新输入";
+                setTimeout(()=>{this.ti=0},1500);
+            }else{
+				this.ti=1;this.tishi=`已查到${a.data.length}个结果`;
+                this.BB1=a.data;
+                setTimeout(()=>{this.ti=0},1500);
+            }
+        })
 	}
   },
   mounted () {
@@ -155,8 +197,11 @@ export default {
           this.AA4=a.data.zhida;
 	});
 	this.axios.get("/ReMen01").then(a=>{
-        this.BB1=a.data.zhu;
-    })
+        this.BB1=a.data;
+	})
+	this.axios.get("/QuanBu02_youce").then(a => {
+            this.youce=a.data;
+    });
   }
 }
 </script>
@@ -210,6 +255,8 @@ export default {
 .col_dan1{font-size: 24px !important;}
 
 .h90{height: 90px;background-image: url("https://pages.anjukestatic.com/xinfang/img/house/hui/s-carActive.jpg");}
+.h37{height: 37px;padding: 13px 0 0 24px;font-size: 18px;}
+.h220{height: 220px;font-size: 14px;padding: 14px 25px 0;}
 /* <!-- 中间结束 --> */
 
 

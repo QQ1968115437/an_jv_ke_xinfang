@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import QuanBu from '../views/QuanBu'
 import ReMen from '../views/ReMen'
 import KanFang from '../views/KanFang'
-import 注册 from '../views/注册'
+import FangYuan from '../views/FangYuan'
 
 Vue.use(VueRouter)
 
@@ -24,9 +24,9 @@ const routes = [
     component: KanFang
   },
   {
-    path: '/004',
-    name: '注册',
-    component: 注册
+    path: '/003',
+    name: 'FangYuan',
+    component: FangYuan
   }
 ]
 

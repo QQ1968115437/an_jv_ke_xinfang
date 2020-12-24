@@ -46,8 +46,8 @@
                         <bj/>
                     </div>
                     <div class="col-8 text-right">
-                        <input type="text" class="w-50 h-100 p-2" placeholder="请输入楼盘名或地址">
-                        <button class="text-white h-100">搜索</button>
+                        <input v-model="shuru" type="text" class="w-50 h-100 p-2 shuru" placeholder="请输入楼盘名或地址">
+                        <button class="text-white h-100" @click="sou">搜索</button>
                         <a href="#" class="ml-3">
                             <i class="bg-img-6 d-inline-block mb-1 mr-1"></i>
                             <span class="h6">地图找房</span>
@@ -59,7 +59,7 @@
             <div class="yt003">
                 <ul class="nav">
                     <li v-for="(z,i) in yt3" :key="i" class="nav-item">
-                        <router-link :to="z" class="nav-link m-0 h6">{{i}}</router-link>
+                        <router-link :to="z" class="nav-link m-0 h6" :class="i==uu?'upd':'1'">{{i}}</router-link>
                     </li>
                 </ul>
             </div>
@@ -70,17 +70,34 @@
 <script>
 import bj from './bj'
 export default {
+    props: ["u"],
     components: {bj},
     data () {
         return {
-            yt1:{},yt3:{}
+            yt1:{},yt3:{},uu:"",shuru:""
+        }
+    },
+    methods: {
+        sou(){
+            this.$emit('shuru', this.shuru);
+            setTimeout(()=>{this.shuru="";},500);
         }
     },
     mounted () {
         this.axios.get("/header").then(a=>{
             this.yt1=a.data.yt1;
             this.yt3=a.data.yt3;
-        })
+        });
+        switch (this.u) {
+            case 1:this.uu="新盘";break;
+            case 2:this.uu="楼讯";break;
+            case 3:this.uu="热门活动";break;
+            case 4:this.uu="看房团";break;
+            case 5:this.uu="房源";break;
+            case 6:this.uu="商业地产";break;
+            case 7:this.uu="海外地产";break;
+            default:this.uu="品牌专区";break;
+        }
     }
 }
 </script>
@@ -138,6 +155,7 @@ export default {
         display: flex;
     }
 /* <!-- 页头-中--> */
+.shuru:focus{outline: 0;}
 .yt002 .bg-img-4,.yt002 .bg-img-5{
     vertical-align: middle;
     background-image: url("../../img/header/dingbu-1.png");
@@ -174,8 +192,7 @@ export default {
     height: 100%;
     color: #fff;
 }
-.yt003 .nav .nav-item a:hover,.nav .nav-item a:focus {
-    background-color: #599700;
+.yt003 .nav .nav-item a:hover,.nav .nav-item a:focus,.upd {
+    background-color: #599700;border-radius: 5px;
 }
-.upd{background-color: #599700;}
 </style>

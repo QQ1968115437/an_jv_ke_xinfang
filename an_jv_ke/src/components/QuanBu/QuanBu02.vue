@@ -15,11 +15,11 @@
                     <a href="#" class="ml-2 mr-1">开盘时间</a><img src="@/img/header/caret-down-fill.svg" alt="">
                 </span>
             </div>
-            <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div>
+            <!-- <div class="h100"><a href="#"><img src="@/img/QuanBu/dd752a4ca204c24bf7ced5a5d05615fb.jpg" alt=""></a></div> -->
 
             <div class="py-3 d-flex h215" v-for="(z,i) of zhu" :key="i">
                 <div class="mb-5 mr-3 position-relative">
-                    <img :src="require(`@/img/QuanBu/${z.imgs}`)" alt="">
+                    <img :src="require(`@/img/QuanBu/zhong/${z.imgs}`)" alt="">
                     <img class="position-absolute bofang" src="@/img/QuanBu/icon_video_m.png" alt="">
                 </div>
                 <ul class="d-flex flex-column list-unstyled m-0 w-100 zi-1 justify-content-between">
@@ -50,7 +50,7 @@
             <!-- 分页条 -->
             <div class="mt-5 clearfix mb-4">
                 <div class=" mt-2 float-left text-info">共有{{zhu_zong}}个有关北京新房楼盘</div>
-                <ul class="d-flex float-right" style="cursor: pointer;" @click="fenye">
+                <ul v-if="chal" class="d-flex float-right" style="cursor: pointer;" @click="fenye">
                     <li class="btn-sm btn-success px-3 ml-2 disabled">上一页</li>
                     <li v-for="i of zhu_zong/10" :key="i" class="btn-sm btn-success px-3 ml-2">{{i}}</li>
                     <li class="btn-sm btn-success px-3 ml-2">下一页</li>
@@ -83,13 +83,18 @@
                 <img class="w-100 h-100" src="@/img/QuanBu/58_jinrong.jpg" alt="">
             </div>
         </div>
+
+        <!-- 提示框 -->
+        <div v-if="ti==1?true:false" class="tishi">{{tishi}}</div>
     </div>
 </template>
 <script>
 export default {
+    props: ["shuru1"],
     data() {
         return {
-            zhu:[],youce:[],cha:0,zhu_zong:"",tiao:10,xf1:"xuan",xf2:"",xf3:""
+            zhu:[],youce:[],cha:0,zhu_zong:"",tiao:10,xf1:"xuan",xf2:"",xf3:"",chal:true,
+            ti:0,tishi:""
         }
     },
     methods: {
@@ -131,10 +136,25 @@ export default {
         this.axios.get("/QuanBu02_zhu").then(a => {
             this.zhu_zong=a.data.length
         });
-        this.axios.get("/QuanBu02_youce",{
-        }).then(a => {
+        this.axios.get("/QuanBu02_youce").then(a => {
             this.youce=a.data;
         });
+    },
+    watch: {
+        shuru1(e){
+            this.axios.get("/QuanBu02_zhu",{
+                params:{q:e}
+            }).then(a=>{
+                if(a.data.length==0){
+                    this.ti=1;this.tishi="没有查询到,请重新输入";
+                    setTimeout(()=>{this.ti=0},1500);
+                }else{
+                    this.ti=1;this.tishi=`已查到${a.data.length}个结果`;
+                    this.zhu=a.data;this.chal=false
+                    setTimeout(()=>{this.ti=0},1500);
+                }
+            })
+        }
     }
 }
 </script>

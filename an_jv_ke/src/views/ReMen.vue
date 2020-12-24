@@ -1,6 +1,6 @@
 <template>
     <div>
-        <myheader/>
+        <myheader :u="3" v-on:shuru="shuru"/>
 
             <div class="yt1">
                 <!-- 轮播图 -->
@@ -102,6 +102,9 @@
                 </div>
             </div>
 
+            <!-- 提示框 -->
+            <div v-if="ti==1?true:false" class="tishi">{{tishi}}</div>
+
         <myfooter/>
     </div>
 </template>
@@ -119,12 +122,29 @@ export default {
     },
     data () {
         return {
-            zhu:[]
+            zhu:[],ti:0,tishi:""
         }
+    },
+    methods: {
+        // 模糊查询
+	    shuru(e){
+        this.axios.get("/ReMen01",{
+            params:{q:e}
+        }).then(a=>{
+            if(a.data.length==0){
+                this.ti=1;this.tishi="没有查询到,请重新输入";
+                setTimeout(()=>{this.ti=0},1500);
+            }else{
+				this.ti=1;this.tishi=`已查到${a.data.length}个结果`;
+                this.zhu=a.data;
+                setTimeout(()=>{this.ti=0},1500);
+            }
+        })
+	}
     },
     mounted () {
         this.axios.get("/ReMen01").then(a=>{
-            this.zhu=a.data.zhu;
+            this.zhu=a.data;
         })
     }
 }
